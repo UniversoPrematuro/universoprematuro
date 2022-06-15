@@ -25,27 +25,10 @@ mixin _$HomeStore on HomeStoreBase, Store {
     });
   }
 
-  late final _$counterAtom =
-      Atom(name: 'HomeStoreBase.counter', context: context);
-
-  @override
-  int get counter {
-    _$counterAtom.reportRead();
-    return super.counter;
-  }
-
-  @override
-  set counter(int value) {
-    _$counterAtom.reportWrite(value, super.counter, () {
-      super.counter = value;
-    });
-  }
-
   @override
   String toString() {
     return '''
-pageViewController: ${pageViewController},
-counter: ${counter}
+pageViewController: ${pageViewController}
     ''';
   }
 }

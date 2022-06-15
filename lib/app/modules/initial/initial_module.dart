@@ -1,3 +1,5 @@
+import 'package:universoprematuro/app/modules/editprofile/editprofile_page.dart';
+import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/home/home_store.dart';
 import 'package:universoprematuro/app/modules/initial/initial_Page.dart';
@@ -17,6 +19,7 @@ class InitialModule extends Module {
     Bind.lazySingleton((i) => RegisterStore()),
     Bind.lazySingleton((i) => LoginStore()),
     Bind.lazySingleton((i) => PerfilStore()),
+    Bind.lazySingleton((i) => EditprofileStore())
   ];
 
   @override
@@ -25,5 +28,6 @@ class InitialModule extends Module {
     ChildRoute('/login', child: (_, args) => LoginPage()),
     ChildRoute('/register', child: (_, args) => RegisterPage()),
     ChildRoute('/home', child: (_, args) => HomePage()),
+    ChildRoute('/editprofile', child: (_, args) => EditprofilePage()),
   ];
 }

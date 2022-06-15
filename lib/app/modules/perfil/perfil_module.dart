@@ -9,7 +9,7 @@ class PerfilModule extends Module {
   final List<Bind> binds = [
     Bind.lazySingleton((i) => PerfilStore()),
     Bind.singleton((i) => UserModel()),
-    Bind.singleton((i) => RegisterStore())
+    Bind.singleton((i) => RegisterStore()),
   ];
 
   @override

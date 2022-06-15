@@ -10,10 +10,4 @@ abstract class HomeStoreBase with Store {
   @observable
   PageController pageViewController = PageController();
   
-  @observable
-  int counter = 0;
-
-  Future<void> increment() async {
-    counter = counter + 1;
-  }
 }

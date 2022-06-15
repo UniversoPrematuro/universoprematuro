@@ -69,7 +69,7 @@ class RegisterPageState extends State<RegisterPage> {
                           ElevatedButton(
                               onPressed: () {
                                 store.registerUser(email: store.controllerEmail.text, password: store.controllerPass.text);
-                                Modular.to.pushNamed('/home');
+                                Navigator.pushReplacementNamed(context, '/editprofile');
                               },
                               child: const Text("JACARÉ"))
                         ],

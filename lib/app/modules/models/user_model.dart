@@ -1,6 +1,10 @@
 import 'package:mobx/mobx.dart';
+import 'package:universoprematuro/app/modules/register/register_store.dart';
 
 class UserModel{
+
+  final RegisterStore store = RegisterStore();
+
   @observable
   String? name;
 
@@ -19,6 +23,8 @@ class UserModel{
 
   @action 
   changePass(String value) => pass = value; 
+
+  
 
   Map<String, dynamic> toMap() {
      Map<String, dynamic> map = {"nome": name, "email": email};
