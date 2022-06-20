@@ -1,25 +1,24 @@
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
 class UserModel{
 
-  final RegisterStore store = RegisterStore();
 
   @observable
   String? name;
 
-  @observable
-  String? email;
-
-  @observable
-  String? pass;
-
-  
   @action 
   changeName(String value) => name = value;
 
+  @observable
+  String? email;
+
   @action 
   changeEmail(String value) => email = value;
+
+  @observable
+  String? pass;
 
   @action 
   changePass(String value) => pass = value; 

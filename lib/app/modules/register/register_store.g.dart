@@ -73,22 +73,26 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  late final _$registerUserAsyncAction =
-      AsyncAction('_RegisterStoreBase.registerUser', context: context);
-
-  @override
-  Future<User?> registerUser(
-      {required String email, required String password}) {
-    return _$registerUserAsyncAction
-        .run(() => super.registerUser(email: email, password: password));
-  }
-
   late final _$saveAsyncAction =
       AsyncAction('_RegisterStoreBase.save', context: context);
 
   @override
   Future<User?> save() {
     return _$saveAsyncAction.run(() => super.save());
+  }
+
+  late final _$_RegisterStoreBaseActionController =
+      ActionController(name: '_RegisterStoreBase', context: context);
+
+  @override
+  dynamic registerUser(UserModel? user) {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.registerUser');
+    try {
+      return super.registerUser(user);
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override

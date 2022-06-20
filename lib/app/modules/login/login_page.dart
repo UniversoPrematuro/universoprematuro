@@ -1,6 +1,10 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/login/login_store.dart';
 import 'package:flutter/material.dart';
+
+
+import '../register/register_store.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -9,7 +13,37 @@ class LoginPage extends StatefulWidget {
   LoginPageState createState() => LoginPageState();
 }
 class LoginPageState extends State<LoginPage> {
-  final LoginStore store = Modular.get();
+  final LoginStore store = LoginStore();
+  final RegisterStore reg = Modular.get();
+
+
+  // _textField({String? labelText, onChanged,errorText}){
+  //   return TextField(
+  //     onChanged: onChanged,
+  //     decoration: InputDecoration(
+  //       labelText: labelText,
+  //       errorText: errorText == null ? null : errorText(),
+  //       prefixIcon: const Icon(Icons.person_outline_rounded, color: Color.fromARGB(255, 101, 187, 88)),
+  //       border: OutlineInputBorder(
+  //         borderRadius: BorderRadius.circular(10), 
+  //         )
+  //     ),
+  //   );
+  // }
+
+  // _textField2({String? labelText, onChanged,errorText}){
+  //   return TextField(
+  //     onChanged: onChanged,
+  //     decoration: InputDecoration(
+  //       labelText: labelText,
+  //       errorText: errorText == null ? null : errorText(),
+  //       prefixIcon: const Icon(Icons.password_outlined, color: Color.fromARGB(255, 101, 187, 88)),
+  //       border: OutlineInputBorder(
+  //         borderRadius: BorderRadius.circular(10), 
+  //         )
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -41,26 +75,52 @@ class LoginPageState extends State<LoginPage> {
                       padding: const EdgeInsets.all(15),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: [
-                          // TextField(
-                          //     decoration: InputDecoration(
-                          //         labelText: "Email",
-                          //         border: OutlineInputBorder(
-                          //           borderRadius: BorderRadius.circular(8),
-                          //         ))),
-                          // const SizedBox(height: 8),
-                          // TextField(
-                          //     decoration: InputDecoration(
-                          //         labelText: "Senha",
-                          //         border: OutlineInputBorder(
-                          //           borderRadius: BorderRadius.circular(8),
-                          //         ))),
-                          ElevatedButton(
+                        children: <Widget>[
+                      Observer(
+                        builder: (_) => TextField(
+                          onChanged: (value) => store.email = value,
+                          decoration: InputDecoration(
+                              labelText: 'Email',
+                              hintText: 'Enter your email address',
+                              errorText: store.error.email),
+                ),
+              ),
+                          const SizedBox(height: 20),
+                      Observer(
+                        builder: (_) => TextField(
+                          onChanged: (value) => store.pass = value,
+                          decoration: InputDecoration(
+                              labelText: 'Password',
+                              hintText: 'Set a password',
+                              errorText: store.error.pass),
+                ),
+              ),
+
+                          const SizedBox(height: 20),
+
+                             ElevatedButton(
                               onPressed: () {
-                                Modular.to.pushNamed('/home');
+                                if (store.validateAll == true ){
+                                Modular.to.pushReplacementNamed("/home");
+                                }
                               },
-                              child: const Text("JACARÉ"))
+                              child: const Text("Entre agora!")),  
+                        //       Padding(
+                        //   padding: const EdgeInsets.only(top: 1),
+                        //   child: Center(
+                        //     child: Text(
+                        //       error,
+                        //       style: const 
+                        //       TextStyle(
+                        //         color: Color.fromARGB(255, 255, 0, 0),
+                        //         fontSize: 15,
+                        //         fontWeight: FontWeight.w500
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),                                                                                               
                         ],
+                        
                       ),
                     ),
                   ]),

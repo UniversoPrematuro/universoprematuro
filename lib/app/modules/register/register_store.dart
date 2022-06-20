@@ -33,15 +33,15 @@ abstract class _RegisterStoreBase with Store, Disposable {
 
 
 
- @action
-  Future<User?> registerUser({
-    required String email,
-    required String password,
-  }) async {
-    await auth.createUserWithEmailAndPassword(
-      email: controllerEmail.text,
-      password: controllerPass.text,
-    ).then((firebaseUser) async {
+  @action
+  registerUser(UserModel? user) {
+    UserModel user = UserModel();
+    user.email = controllerEmail.text;
+    user.pass = controllerPass.text;
+    auth.createUserWithEmailAndPassword(
+      email: user.email!,
+      password: user.pass!,
+    ).then((firebaseUser){
       save();
     });
     

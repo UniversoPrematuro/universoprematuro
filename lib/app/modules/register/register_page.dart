@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class RegisterPageState extends State<RegisterPage> {
                           TextField(
                               controller: store.controllerName,
                               decoration: InputDecoration(
-                                  labelText: "Nome",
+                                  labelText: "Nome da mãe",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ))),
@@ -68,10 +69,10 @@ class RegisterPageState extends State<RegisterPage> {
                                   ))),
                           ElevatedButton(
                               onPressed: () {
-                                store.registerUser(email: store.controllerEmail.text, password: store.controllerPass.text);
+                                store.registerUser(UserModel());
                                 Navigator.pushReplacementNamed(context, '/editprofile');
                               },
-                              child: const Text("JACARÉ"))
+                              child: const Text("Cadastrar"))
                         ],
                       ),
                     ),
