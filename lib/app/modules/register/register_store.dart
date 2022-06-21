@@ -1,6 +1,7 @@
 // ignore_for_file: body_might_complete_normally_nullable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -14,6 +15,11 @@ abstract class _RegisterStoreBase with Store, Disposable {
 
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore db = FirebaseFirestore.instance;
+  // UserModel? user;
+
+  // _RegisterStoreBase() {
+  //   user = UserModel();
+  // }
   
 
   @observable
@@ -25,28 +31,50 @@ abstract class _RegisterStoreBase with Store, Disposable {
   @observable
   TextEditingController controllerPass = TextEditingController();
 
+  @observable
+  String name = '';
+
+  @computed
+  bool get isValid {
+    return validationName() == null;
+  }
+
+  
+  
+  @action
+  changeName(String value) => controllerName.text = value;
+
+  validationName() {
+    if (controllerName.text.isEmpty) {
+      return 'O campo é obrigatorio';
+    } else if (controllerName.text.length < 3) {
+      return 'O campo deve ter mais de 3 caracter';
+    } else {
+      return;
+    }
+  }
+
+
 
   @observable
   String? idLogado;
 
-
-
-
-
- @action
-  Future<User?> registerUser({
-    required String email,
-    required String password,
-  }) async {
-    await auth.createUserWithEmailAndPassword(
-      email: controllerEmail.text,
-      password: controllerPass.text,
-    ).then((firebaseUser) async {
+ 
+  @action
+  registerUser(UserModel user) {
+    UserModel user = UserModel();
+    user.email = controllerEmail.text;
+    user.pass = controllerPass.text;
+    auth.createUserWithEmailAndPassword(
+      email: user.email,
+      password: user.pass,
+    ).then((firebaseUser){
       save();
+      Modular.to.pushNamed('/editprofile');
     });
     
   }
-
+  
   @action
   Future<User?> save() async {
     FirebaseAuth auth = FirebaseAuth.instance;

@@ -10,6 +10,9 @@ import 'package:universoprematuro/app/modules/home/home_store.dart';
 import 'package:universoprematuro/app/modules/perfil/perfil_page.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
+import '../crescimento/crescimento_page.dart';
+import '../desenvolvimento/desenvolvimento_page.dart';
+
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -99,10 +102,10 @@ class _HomePageState extends State<HomePage>{
               
               )
           ]),
-          PerfilPage(),
-          Container(child:const Text("3")),
-          Container(child: Text("4")),
-          ConfiguracoesPage()
+          const PerfilPage(),
+          const DesenvolvimentoPage(),
+          const CrescimentoPage(),
+          const ConfiguracoesPage()
 
         ],
       ),

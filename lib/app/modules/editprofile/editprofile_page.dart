@@ -18,75 +18,161 @@ class EditprofilePageState extends State<EditprofilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text('Editar Perfil'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Column(children: [
-              Text("Olá, ${reg.controllerName.text}\n"),
+              Text("Olá, ${reg.controllerName.text}"),
               const Text("Hora de preencher o perfil do seu bebê!"),
-              SizedBox(
-                height: MediaQuery.of(context).size.height/4,
-                width: 390,
-                child: Card(
-                  shape: const  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomRight: Radius.circular(20))
-                  ),
-                  color: Colors.red,
-                  child: 
-                    Column(
-                      children: [
-                        TextField(
-                          controller: store.controllerNameChild,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20)
-                            )
-                          ),
-                        )
-
-                        //  Padding(
-                        //    padding: const EdgeInsets.only(left: 170),
-                        //    child: CircleAvatar(
-                        //      backgroundColor: Colors.blue,
-                        //      radius: 50,
-                        //    ),
-                        //  ),
-                      ],
-                    )
+              const SizedBox(height: 30),
+              Center(
+                child: CircleAvatar(
+                  radius: 65,
+                  backgroundColor: Colors.grey,
+                  backgroundImage: NetworkImage(store.urlImagemRec),
                   
+                  )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextButton(
+                    child: const Text("Câmera",
+                        style: TextStyle(color: Colors.green)),
+                    onPressed: () {
+                      store.reuperarImg("camera");
+                    },
+                  ),
+                  TextButton(
+                    child: const Text("Galeria",
+                        style: TextStyle(color: Colors.green)),
+                    onPressed: () {
+                      store.reuperarImg("galeria");
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: MediaQuery.of(context).size.height/2.8,
+                width: 390,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    color: Colors.red,
+                    child: 
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextField(
+                              controller: store.controllerNameChild,
+                              decoration: InputDecoration(
+                                labelText: 'Nome',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextField(
+                              controller: store.controllerBirth,
+                              decoration: InputDecoration(
+                                labelText: 'Nascimento',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextField(
+                              controller: store.controllerGesAge,
+                              decoration: InputDecoration(
+                                labelText: 'Idade Gestacional',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                              ),
+                            )
+
+                            //  Padding(
+                            //    padding: const EdgeInsets.only(left: 170),
+                            //    child: CircleAvatar(
+                            //      backgroundColor: Colors.blue,
+                            //      radius: 50,
+                            //    ),
+                            //  ),
+                          ],
+                        ),
+                      )
+                    
+                  ),
                 ), 
               ),
-              // SizedBox(height: 40),
-              // SizedBox(
-              //   height: MediaQuery.of(context).size.height/4,
-              //   width: 390,
-              //   child: Card(
-              //     shape: const  RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.only(topLeft: Radius.circular(20), bottomRight: Radius.circular(20))
-              //     ),
-              //     color: Colors.red,
-              //     child: 
-              //       Row(
-              //         children: [
-              //          const Padding(
-              //            padding: const EdgeInsets.only(right: 170),
-              //            child: CircleAvatar(
-              //              backgroundColor: Colors.blue,
-              //              radius: 50,
-              //            ),
-              //          ),
-              //           Align(
-              //             alignment: Alignment.centerLeft,
-                          
-              //           ),
-
-              //         ],
-              //       )
-                  
-              //   ), 
-              // ),
+              const Center(child: CircleAvatar(radius: 65)),
+              const SizedBox(height: 20),
+             Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    color: Colors.red,
+                    child: 
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TextField(
+                              controller: store.controllerNameChild,
+                              decoration: InputDecoration(
+                                labelText: 'Nome',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextField(
+                              controller: store.controllerBirth,
+                              decoration: InputDecoration(
+                                labelText: 'Nascimento',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            TextField(
+                              controller: store.controllerGesAge,
+                              decoration: InputDecoration(
+                                labelText: 'Idade Gestacional',
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                                )
+                              ),
+                            ),
+                            ElevatedButton(onPressed: (){
+                              Modular.to.pushNamed('/perfil');
+                            }, 
+                            child: Text("Perfil")
+                            
+                            )
+                          ],
+                        ),
+                      )
+                    
+                  ),
+                ), 
+              
 
               
             ],)

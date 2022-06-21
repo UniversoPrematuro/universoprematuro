@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:universoprematuro/app/modules/perfil/perfil_store.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class PerfilPageState extends State<PerfilPage> {
   final PerfilStore store = Modular.get();
   UserModel user = UserModel();
   final RegisterStore stores = Modular.get();
+  final EditprofileStore ep = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -100,10 +102,11 @@ class PerfilPageState extends State<PerfilPage> {
                                child: CircleAvatar(
                                radius: 55,
                                backgroundColor: Colors.black,
+                               backgroundImage: NetworkImage(ep.urlImagemRec),
                               //  backgroundImage: NetworkImage(),
                                  ),
                                 ),
-                                ElevatedButton(onPressed: (){Navigator.pushReplacementNamed(context, "/desenvolvimento");}, child: Text("Editar"))
+                                ElevatedButton(onPressed: (){Modular.to.pushReplacementNamed("/home");}, child: Text("Editar"))
                               ],
                             ),
                           ]

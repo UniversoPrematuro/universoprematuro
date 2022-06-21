@@ -6,13 +6,13 @@ class UserModel{
   final RegisterStore store = RegisterStore();
 
   @observable
-  String? name;
+  String name = '';
 
   @observable
-  String? email;
+  String email = '';
 
   @observable
-  String? pass;
+  String pass = '';
 
   
   @action 

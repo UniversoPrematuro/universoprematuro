@@ -13,6 +13,10 @@ import 'package:universoprematuro/app/modules/register/register_module.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
 
+import 'modules/crescimento/crescimento_module.dart';
+import 'modules/crescimento/crescimento_store.dart';
+import 'modules/desenvolvimento/desenvolvimento_module.dart';
+import 'modules/desenvolvimento/desenvolvimento_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/login/login_store.dart';
 
@@ -24,7 +28,9 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => LoginStore()),
     Bind.lazySingleton((i) => HomeStore()),
     Bind.lazySingleton((i) => ConfiguracoesStore()),
-    Bind.lazySingleton((i) => EditprofileStore())
+    Bind.lazySingleton((i) => EditprofileStore()),
+    Bind.lazySingleton((i) => DesenvolvimentoStore()),
+    Bind.lazySingleton((i) => CrescimentoStore()),
 
   ];
 
@@ -36,7 +42,9 @@ class AppModule extends Module {
     ModuleRoute('/home', module: HomeModule()),
     ModuleRoute('/perfil', module: PerfilModule()),
     ModuleRoute('/editperfil', module: EditprofileModule()),
-    ModuleRoute('/configuracoes', module: ConfiguracoesModule())
+    ModuleRoute('/configuracoes', module: ConfiguracoesModule()),
+    ModuleRoute('/desenvolvimento', module: DesenvolvimentoModule()),
+    ModuleRoute('/crescimento', module: CrescimentoModule()),
   ];
 
 }

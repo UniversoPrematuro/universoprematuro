@@ -7,11 +7,11 @@ class InitialStore = _InitialStoreBase with _$InitialStore;
 abstract class _InitialStoreBase with Store {
 
 
-  @observable
-  int value = 0;
+  // @observable
+  // int value = 0;
 
-  @action
-  void increment() {
-    value++;
-  } 
+  // @action
+  // void increment() {
+  //   value++;
+  // } 
 }

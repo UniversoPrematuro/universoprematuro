@@ -1,6 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/login/login_store.dart';
 import 'package:flutter/material.dart';
+
+import '../initial/initial_Page.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -14,6 +17,18 @@ class LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Login"), 
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255, 193, 143),
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: (){
+             Modular.to.pushNamed("/");
+          },
+        ),
+      ),
         body: SingleChildScrollView(
       child: Container(
         color: const Color.fromARGB(255, 255, 193, 143),
@@ -42,24 +57,26 @@ class LoginPageState extends State<LoginPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          // TextField(
-                          //     decoration: InputDecoration(
-                          //         labelText: "Email",
-                          //         border: OutlineInputBorder(
-                          //           borderRadius: BorderRadius.circular(8),
-                          //         ))),
-                          // const SizedBox(height: 8),
-                          // TextField(
-                          //     decoration: InputDecoration(
-                          //         labelText: "Senha",
-                          //         border: OutlineInputBorder(
-                          //           borderRadius: BorderRadius.circular(8),
-                          //         ))),
+                         TextField(
+                          controller: store.controllerEmail,
+                             decoration: InputDecoration(
+                                 labelText: "Email",
+                                 border: OutlineInputBorder(
+                                   borderRadius: BorderRadius.circular(8),
+                                 ))),
+                         const SizedBox(height: 8),
+                         TextField(
+                          controller: store.controllerPass,
+                             decoration: InputDecoration(
+                                 labelText: "Senha",
+                                 border: OutlineInputBorder(
+                                   borderRadius: BorderRadius.circular(8),
+                                 ))),
                           ElevatedButton(
                               onPressed: () {
                                 Modular.to.pushNamed('/home');
                               },
-                              child: const Text("JACARÉ"))
+                              child: const Text("Entre agora!"))
                         ],
                       ),
                     ),

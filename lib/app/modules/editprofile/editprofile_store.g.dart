@@ -57,12 +57,80 @@ mixin _$EditprofileStore on _EditprofileStoreBase, Store {
     });
   }
 
+  late final _$imagemAtom =
+      Atom(name: '_EditprofileStoreBase.imagem', context: context);
+
+  @override
+  XFile? get imagem {
+    _$imagemAtom.reportRead();
+    return super.imagem;
+  }
+
+  @override
+  set imagem(XFile? value) {
+    _$imagemAtom.reportWrite(value, super.imagem, () {
+      super.imagem = value;
+    });
+  }
+
+  late final _$idLogadoAtom =
+      Atom(name: '_EditprofileStoreBase.idLogado', context: context);
+
+  @override
+  String? get idLogado {
+    _$idLogadoAtom.reportRead();
+    return super.idLogado;
+  }
+
+  @override
+  set idLogado(String? value) {
+    _$idLogadoAtom.reportWrite(value, super.idLogado, () {
+      super.idLogado = value;
+    });
+  }
+
+  late final _$uploadAtom =
+      Atom(name: '_EditprofileStoreBase.upload', context: context);
+
+  @override
+  bool get upload {
+    _$uploadAtom.reportRead();
+    return super.upload;
+  }
+
+  @override
+  set upload(bool value) {
+    _$uploadAtom.reportWrite(value, super.upload, () {
+      super.upload = value;
+    });
+  }
+
+  late final _$urlImagemRecAtom =
+      Atom(name: '_EditprofileStoreBase.urlImagemRec', context: context);
+
+  @override
+  String get urlImagemRec {
+    _$urlImagemRecAtom.reportRead();
+    return super.urlImagemRec;
+  }
+
+  @override
+  set urlImagemRec(String value) {
+    _$urlImagemRecAtom.reportWrite(value, super.urlImagemRec, () {
+      super.urlImagemRec = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
 controllerNameChild: ${controllerNameChild},
 controllerBirth: ${controllerBirth},
-controllerGesAge: ${controllerGesAge}
+controllerGesAge: ${controllerGesAge},
+imagem: ${imagem},
+idLogado: ${idLogado},
+upload: ${upload},
+urlImagemRec: ${urlImagemRec}
     ''';
   }
 }

@@ -9,40 +9,51 @@ part of 'login_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$LoginStore on _LoginStoreBase, Store {
-  late final _$valueAtom =
-      Atom(name: '_LoginStoreBase.value', context: context);
+  late final _$controllerEmailAtom =
+      Atom(name: '_LoginStoreBase.controllerEmail', context: context);
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  TextEditingController get controllerEmail {
+    _$controllerEmailAtom.reportRead();
+    return super.controllerEmail;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set controllerEmail(TextEditingController value) {
+    _$controllerEmailAtom.reportWrite(value, super.controllerEmail, () {
+      super.controllerEmail = value;
     });
   }
 
-  late final _$_LoginStoreBaseActionController =
-      ActionController(name: '_LoginStoreBase', context: context);
+  late final _$controllerPassAtom =
+      Atom(name: '_LoginStoreBase.controllerPass', context: context);
 
   @override
-  void increment() {
-    final _$actionInfo = _$_LoginStoreBaseActionController.startAction(
-        name: '_LoginStoreBase.increment');
-    try {
-      return super.increment();
-    } finally {
-      _$_LoginStoreBaseActionController.endAction(_$actionInfo);
-    }
+  TextEditingController get controllerPass {
+    _$controllerPassAtom.reportRead();
+    return super.controllerPass;
+  }
+
+  @override
+  set controllerPass(TextEditingController value) {
+    _$controllerPassAtom.reportWrite(value, super.controllerPass, () {
+      super.controllerPass = value;
+    });
+  }
+
+  late final _$loginAsyncAction =
+      AsyncAction('_LoginStoreBase.login', context: context);
+
+  @override
+  Future<void> login() {
+    return _$loginAsyncAction.run(() => super.login());
   }
 
   @override
   String toString() {
     return '''
-value: ${value}
+controllerEmail: ${controllerEmail},
+controllerPass: ${controllerPass}
     ''';
   }
 }

@@ -1,6 +1,9 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 
 class RegisterPage extends StatefulWidget {
   final String title;
@@ -10,6 +13,8 @@ class RegisterPage extends StatefulWidget {
 }
 class RegisterPageState extends State<RegisterPage> {
   final RegisterStore store = Modular.get();
+  var user = UserModel();
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +47,18 @@ class RegisterPageState extends State<RegisterPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          TextField(
+                          Observer(builder: (_) {
+                            return TextField(
                               controller: store.controllerName,
+                              onChanged: (value) => store.controllerName.text,
                               decoration: InputDecoration(
+                                errorText: store.validationName(),
                                   labelText: "Nome",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                  ))),
+                                  )));
+                          }),
+                          
                           const SizedBox(height: 8),
                           TextField(
                               controller: store.controllerEmail,
@@ -68,10 +78,12 @@ class RegisterPageState extends State<RegisterPage> {
                                   ))),
                           ElevatedButton(
                               onPressed: () {
-                                store.registerUser(email: store.controllerEmail.text, password: store.controllerPass.text);
-                                Navigator.pushReplacementNamed(context, '/editprofile');
+                                
+                                  store.registerUser(UserModel());
+                                
+                                // store.registerUser(UserModel());
                               },
-                              child: const Text("JACARÉ"))
+                              child: const Text("Cadastre-se")),
                         ],
                       ),
                     ),
