@@ -19,6 +19,7 @@ import 'modules/desenvolvimento/desenvolvimento_module.dart';
 import 'modules/desenvolvimento/desenvolvimento_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/login/login_store.dart';
+import 'modules/navbar/navbar_module.dart';
 
 class AppModule extends Module {
   @override
@@ -37,11 +38,12 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ModuleRoute(Modular.initialRoute, module: InitialModule()),
+    // ModuleRoute('/navbar', module: NavbarModule()),
     ModuleRoute('/register', module: RegisterModule()),
     ModuleRoute('/login', module: LoginModule()),
     ModuleRoute('/home', module: HomeModule()),
     ModuleRoute('/perfil', module: PerfilModule()),
-    ModuleRoute('/editperfil', module: EditprofileModule()),
+    ModuleRoute('/editprofile', module: EditprofileModule()),
     ModuleRoute('/configuracoes', module: ConfiguracoesModule()),
     ModuleRoute('/desenvolvimento', module: DesenvolvimentoModule()),
     ModuleRoute('/crescimento', module: CrescimentoModule()),

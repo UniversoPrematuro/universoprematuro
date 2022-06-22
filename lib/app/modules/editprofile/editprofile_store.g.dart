@@ -25,19 +25,20 @@ mixin _$EditprofileStore on _EditprofileStoreBase, Store {
     });
   }
 
-  late final _$controllerBirthAtom =
-      Atom(name: '_EditprofileStoreBase.controllerBirth', context: context);
+  late final _$controllerBirthChildAtom = Atom(
+      name: '_EditprofileStoreBase.controllerBirthChild', context: context);
 
   @override
-  TextEditingController get controllerBirth {
-    _$controllerBirthAtom.reportRead();
-    return super.controllerBirth;
+  TextEditingController get controllerBirthChild {
+    _$controllerBirthChildAtom.reportRead();
+    return super.controllerBirthChild;
   }
 
   @override
-  set controllerBirth(TextEditingController value) {
-    _$controllerBirthAtom.reportWrite(value, super.controllerBirth, () {
-      super.controllerBirth = value;
+  set controllerBirthChild(TextEditingController value) {
+    _$controllerBirthChildAtom.reportWrite(value, super.controllerBirthChild,
+        () {
+      super.controllerBirthChild = value;
     });
   }
 
@@ -121,16 +122,51 @@ mixin _$EditprofileStore on _EditprofileStoreBase, Store {
     });
   }
 
+  late final _$controllerBirthMotherAtom = Atom(
+      name: '_EditprofileStoreBase.controllerBirthMother', context: context);
+
+  @override
+  TextEditingController get controllerBirthMother {
+    _$controllerBirthMotherAtom.reportRead();
+    return super.controllerBirthMother;
+  }
+
+  @override
+  set controllerBirthMother(TextEditingController value) {
+    _$controllerBirthMotherAtom.reportWrite(value, super.controllerBirthMother,
+        () {
+      super.controllerBirthMother = value;
+    });
+  }
+
+  late final _$escolhaUserAtom =
+      Atom(name: '_EditprofileStoreBase.escolhaUser', context: context);
+
+  @override
+  String? get escolhaUser {
+    _$escolhaUserAtom.reportRead();
+    return super.escolhaUser;
+  }
+
+  @override
+  set escolhaUser(String? value) {
+    _$escolhaUserAtom.reportWrite(value, super.escolhaUser, () {
+      super.escolhaUser = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
 controllerNameChild: ${controllerNameChild},
-controllerBirth: ${controllerBirth},
+controllerBirthChild: ${controllerBirthChild},
 controllerGesAge: ${controllerGesAge},
 imagem: ${imagem},
 idLogado: ${idLogado},
 upload: ${upload},
-urlImagemRec: ${urlImagemRec}
+urlImagemRec: ${urlImagemRec},
+controllerBirthMother: ${controllerBirthMother},
+escolhaUser: ${escolhaUser}
     ''';
   }
 }

@@ -16,19 +16,37 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
           name: '_RegisterStoreBase.isValid'))
       .value;
 
-  late final _$controllerNameAtom =
-      Atom(name: '_RegisterStoreBase.controllerName', context: context);
+  late final _$controllerNameMotherAtom =
+      Atom(name: '_RegisterStoreBase.controllerNameMother', context: context);
 
   @override
-  TextEditingController get controllerName {
-    _$controllerNameAtom.reportRead();
-    return super.controllerName;
+  TextEditingController get controllerNameMother {
+    _$controllerNameMotherAtom.reportRead();
+    return super.controllerNameMother;
   }
 
   @override
-  set controllerName(TextEditingController value) {
-    _$controllerNameAtom.reportWrite(value, super.controllerName, () {
-      super.controllerName = value;
+  set controllerNameMother(TextEditingController value) {
+    _$controllerNameMotherAtom.reportWrite(value, super.controllerNameMother,
+        () {
+      super.controllerNameMother = value;
+    });
+  }
+
+  late final _$controllerBirthMotherAtom =
+      Atom(name: '_RegisterStoreBase.controllerBirthMother', context: context);
+
+  @override
+  TextEditingController get controllerBirthMother {
+    _$controllerBirthMotherAtom.reportRead();
+    return super.controllerBirthMother;
+  }
+
+  @override
+  set controllerBirthMother(TextEditingController value) {
+    _$controllerBirthMotherAtom.reportWrite(value, super.controllerBirthMother,
+        () {
+      super.controllerBirthMother = value;
     });
   }
 
@@ -132,7 +150,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
   @override
   String toString() {
     return '''
-controllerName: ${controllerName},
+controllerNameMother: ${controllerNameMother},
+controllerBirthMother: ${controllerBirthMother},
 controllerEmail: ${controllerEmail},
 controllerPass: ${controllerPass},
 name: ${name},

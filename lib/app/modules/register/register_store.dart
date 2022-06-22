@@ -23,7 +23,10 @@ abstract class _RegisterStoreBase with Store, Disposable {
   
 
   @observable
-  TextEditingController controllerName = TextEditingController();
+  TextEditingController controllerNameMother = TextEditingController();
+
+  @observable
+  TextEditingController controllerBirthMother = TextEditingController();
 
   @observable
   TextEditingController controllerEmail = TextEditingController();
@@ -42,12 +45,12 @@ abstract class _RegisterStoreBase with Store, Disposable {
   
   
   @action
-  changeName(String value) => controllerName.text = value;
+  changeName(String value) => controllerNameMother.text = value;
 
   validationName() {
-    if (controllerName.text.isEmpty) {
+    if (controllerNameMother.text.isEmpty) {
       return 'O campo é obrigatorio';
-    } else if (controllerName.text.length < 3) {
+    } else if (controllerNameMother.text.length < 3) {
       return 'O campo deve ter mais de 3 caracter';
     } else {
       return;
@@ -84,7 +87,7 @@ abstract class _RegisterStoreBase with Store, Disposable {
     FirebaseFirestore db = FirebaseFirestore.instance;
 
     user.email = controllerEmail.text;
-    user.name = controllerName.text;
+    user.name = controllerNameMother.text;
 
     Map<String, dynamic> data = {
       "nome da mãe" : user.name,
@@ -98,7 +101,7 @@ abstract class _RegisterStoreBase with Store, Disposable {
   @override
   void dispose() {
     controllerEmail.dispose();
-    controllerName.dispose;
+    controllerNameMother.dispose();
     controllerPass.dispose();
   }
   

@@ -23,22 +23,22 @@ class PerfilPageState extends State<PerfilPage> {
     return  DefaultTabController(
           length: 2,
           child: Scaffold(
-          appBar: AppBar(
-            title: const Text("Perfil"),
-            backgroundColor: Colors.green,
-            centerTitle: true,
-            elevation: 2,
-            actions: [IconButton(
-              icon:const Icon(Icons.door_back_door_outlined),
-              onPressed: (() {
-                FirebaseAuth.instance.signOut();
-                Navigator.pushReplacementNamed(context, "/login");
+        //   appBar: AppBar(
+        //     title: const Text("Perfil"),
+        //     backgroundColor: Colors.green,
+        //     centerTitle: true,
+        //     elevation: 2,
+        //     actions: [IconButton(
+        //       icon:const Icon(Icons.door_back_door_outlined),
+        //       onPressed: (() {
+        //         FirebaseAuth.instance.signOut();
+        //         Navigator.pushReplacementNamed(context, "/login");
 
-                }
-              )
-            )
-          ],
-        ),
+        //         }
+        //       )
+        //     )
+        //   ],
+        // ),
 
            body: Column(
             children: <Widget>[
@@ -66,7 +66,7 @@ class PerfilPageState extends State<PerfilPage> {
                             padding: const EdgeInsets.only(left: 16),
                             child: Column(
                               children:  <Widget>[
-                                Text('Nome: ${stores.controllerName.text} ',
+                                Text('Nome: ${stores.controllerNameMother.text} ',
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600

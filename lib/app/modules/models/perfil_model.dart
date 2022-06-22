@@ -16,10 +16,10 @@ class PerfilModel extends UserModel{
   String? birth;
 
   @observable
-  int? gesAge;
+  String? gesAge;
 
   @observable
-  bool? gender;
+  String? gender;
 
   @action
   setId(String value) => id = value;
@@ -31,10 +31,10 @@ class PerfilModel extends UserModel{
   setBirth(String value) => birth = value;
 
   @action
-  setGesAge(int value) => gesAge = value;
+  setGesAge(String value) => gesAge = value;
 
   @action
-  setGender(bool value) => gender = value;
+  setGender(String value) => gender = value;
 
 
   Map<String, dynamic> toMap(){

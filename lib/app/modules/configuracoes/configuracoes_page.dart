@@ -14,12 +14,16 @@ class ConfiguracoesPageState extends State<ConfiguracoesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Center(child: Text("TESTE CONFIG"))
+          Center(child: Text("TESTE CONFIG")),
+          ElevatedButton(onPressed: (){
+            Modular.to.pushNamed('/editprofile');
+          }, child: Text("Editar Perfil"))
         ],
       ),
     );

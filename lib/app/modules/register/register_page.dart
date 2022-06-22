@@ -15,6 +15,12 @@ class RegisterPageState extends State<RegisterPage> {
   final RegisterStore store = Modular.get();
   var user = UserModel();
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -49,15 +55,23 @@ class RegisterPageState extends State<RegisterPage> {
                         children: [
                           Observer(builder: (_) {
                             return TextField(
-                              controller: store.controllerName,
-                              onChanged: (value) => store.controllerName.text,
+                              controller: store.controllerNameMother,
+                              // onChanged: (value) => store.controllerName.text,
                               decoration: InputDecoration(
                                 errorText: store.validationName(),
-                                  labelText: "Nome",
+                                  labelText: "Nome da mãe",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   )));
                           }),
+
+                          TextField(
+                              controller: store.controllerBirthMother,
+                              decoration: InputDecoration(
+                                  labelText: "Data de nasc.",
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ))),
                           
                           const SizedBox(height: 8),
                           TextField(
@@ -76,10 +90,13 @@ class RegisterPageState extends State<RegisterPage> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ))),
+                            const SizedBox(height: 8),
+                            
                           ElevatedButton(
                               onPressed: () {
                                 
                                   store.registerUser(UserModel());
+                                  
                                 
                                 // store.registerUser(UserModel());
                               },
