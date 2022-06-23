@@ -36,7 +36,7 @@ class PerfilModel extends UserModel{
   @action
   setGender(String value) => gender = value;
 
-
+  @override
   Map<String, dynamic> toMap(){
     Map<String, dynamic> map = {
     "nome da criança" : nameChild,

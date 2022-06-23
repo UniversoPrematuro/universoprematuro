@@ -1,17 +1,19 @@
 
 
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
+// import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universoprematuro/app/modules/configuracoes/configuracoes_page.dart';
-
+import 'package:universoprematuro/app/modules/bottomnavbar/bottomnavbar_page.dart';
+import 'package:universoprematuro/app/modules/bottomnavbar/bottomnavbar_store.dart';
+// import 'package:universoprematuro/app/modules/configuracoes/configuracoes_page.dart';
 import 'package:universoprematuro/app/modules/home/home_store.dart';
-import 'package:universoprematuro/app/modules/perfil/perfil_page.dart';
+// import 'package:universoprematuro/app/modules/perfil/perfil_page.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
-import '../crescimento/crescimento_page.dart';
-import '../desenvolvimento/desenvolvimento_page.dart';
+
+// import '../crescimento/crescimento_page.dart';
+// import '../desenvolvimento/desenvolvimento_page.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -25,6 +27,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>{
   final HomeStore store = Modular.get();
   final RegisterStore reg = Modular.get();
+  final BottomnavbarPage nav = Modular.get<BottomnavbarPage>();
+
 
 
 
@@ -34,52 +38,52 @@ class _HomePageState extends State<HomePage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AnimatedBuilder(
+      // bottomNavigationBar: AnimatedBuilder(
         
-        animation: store.pageViewController,
-        builder: (context, snapshot) {
-          return BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: store.pageViewController.page?.round() ?? 0,
-            onTap: (index){
-              store.pageViewController.jumpToPage(index);
-            },
-            items: const [
+      //   animation: store.pageViewController,
+      //   builder: (context, snapshot) {
+      //     return BottomNavigationBar(
+      //       type: BottomNavigationBarType.fixed,
+      //       currentIndex: store.pageViewController.page?.round() ?? 0,
+      //       onTap: (index){
+      //         store.pageViewController.jumpToPage(index);
+      //       },
+      //       items: const [
           
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: "Home",
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.home_filled),
+      //         label: "Home",
               
-              ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Perfil",
+      //         ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.person),
+      //         label: "Perfil",
               
-              ),
-            BottomNavigationBarItem(
-             icon: Icon(Icons.home_max_outlined),
-             label: "Desenvolvimento",
+      //         ),
+      //       BottomNavigationBarItem(
+      //        icon: Icon(Icons.home_max_outlined),
+      //        label: "Desenvolvimento",
               
-             ),
-            BottomNavigationBarItem(
-             icon: Icon(Icons.home_max_outlined),
-             label: "Crescimento",
+      //        ),
+      //       BottomNavigationBarItem(
+      //        icon: Icon(Icons.home_max_outlined),
+      //        label: "Crescimento",
               
-             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings_rounded),
-              label: "Configurações",
+      //        ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.settings_rounded),
+      //         label: "Configurações",
               
-              ),
-          ]);
-        }
-      ),
-      body: PageView(
-        // width: MediaQuery.of(context).size.width,
-        // height: MediaQuery.of(context).size.height,
-        controller: store.pageViewController,
-         children: [ 
-          SingleChildScrollView(
+      //         ),
+      //     ]);
+      //   }
+      // ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        // controller: store.pageViewController,
+        //  children: [ 
+          child: SingleChildScrollView(
             child: Column(children: [
               Container(
                 margin: const EdgeInsets.only(top: 61),
@@ -199,8 +203,8 @@ class _HomePageState extends State<HomePage>{
                           borderRadius: BorderRadius.circular(20)),
                           elevation: 20,
                           color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(15.0),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15.0),
                             child: Text('O projeto “Universo Prematuro” envolve uma ferramenta '
                                         'digital para oferecer o melhor cuidado longitudinal de '
                                         'crianças nascidas prematuras (idade gestacional menor que'
@@ -222,10 +226,6 @@ class _HomePageState extends State<HomePage>{
                         ),
                       ),
                     ),
-                    // PerfilPage(),
-                    // DesenvolvimentoPage(),
-                    // CrescimentoPage(),
-                    // ConfiguracoesPage()    
                   ],
                 ),
                     
@@ -235,15 +235,15 @@ class _HomePageState extends State<HomePage>{
             
             ),
           ),
-          const HomePage(),
-          const PerfilPage(),
-          const DesenvolvimentoPage(),
-          const CrescimentoPage(),
-          const ConfiguracoesPage()
+        //   const HomePage(),
+        //   const PerfilPage(),
+        //   const DesenvolvimentoPage(),
+        //   const CrescimentoPage(),
+        //   const ConfiguracoesPage()
 
-         ]
+        //  ]
       ),
-      
+      bottomNavigationBar: nav,
     );
   }
 }

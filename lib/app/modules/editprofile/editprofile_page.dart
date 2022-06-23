@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:flutter/material.dart';
 import 'package:universoprematuro/app/modules/models/perfil_model.dart';
-import 'package:universoprematuro/app/modules/models/user_model.dart';
+// import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../register/register_store.dart';
@@ -153,7 +153,6 @@ class EditprofilePageState extends State<EditprofilePage> {
                                       groupValue: store.escolhaUser, 
                                       onChanged: (String?  escolha){
                                         store.escolhaUser = escolha!;
-                                        print('Escolha: ${store.escolhaUser}');
                                       });
                                     }),
 
@@ -170,7 +169,6 @@ class EditprofilePageState extends State<EditprofilePage> {
                                         groupValue: store.perfil.gender, 
                                         onChanged: (String? escolha){
                                           store.escolhaUser = escolha!;
-                                          print('Escolha: ${store.escolhaUser}');
                                         });
                                       }
                                     ),

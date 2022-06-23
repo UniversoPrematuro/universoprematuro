@@ -78,8 +78,8 @@ abstract class _EditprofileStoreBase with Store, Disposable {
     User usuarioLogado = auth.currentUser!;
     idLogado = usuarioLogado.uid;
     File file = File(imagem!.path);
-    Reference pastaRaiz = await storage.ref();
-    Reference arquivo = await pastaRaiz.child("perfil").child("$idLogado.jpg");
+    Reference pastaRaiz =  storage.ref();
+    Reference arquivo =  pastaRaiz.child("perfil").child("$idLogado.jpg");
 
     UploadTask task = arquivo.putFile(file);
     task.snapshotEvents.listen((TaskSnapshot storageEvent) {
@@ -126,7 +126,7 @@ abstract class _EditprofileStoreBase with Store, Disposable {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+
     controllerNameChild.dispose();
     controllerBirthChild.dispose();
     controllerGesAge.dispose();

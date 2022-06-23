@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -23,7 +25,7 @@ abstract class _LoginStoreBase with Store {
     user.email = controllerEmail.text;
     user.pass = controllerPass.text;
     auth.signInWithEmailAndPassword(email: user.email, password: user.pass).then((firebaseUser) {
-      Modular.to.pushNamed('/home');
+      Modular.to.pushNamed('/navbar');
     });
   }
 

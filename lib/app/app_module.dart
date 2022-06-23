@@ -1,4 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:universoprematuro/app/modules/bottomnavbar/bottomnavbar_module.dart';
+import 'package:universoprematuro/app/modules/bottomnavbar/bottomnavbar_page.dart';
 import 'package:universoprematuro/app/modules/configuracoes/configuracoes_module.dart';
 import 'package:universoprematuro/app/modules/configuracoes/configuracoes_store.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_module.dart';
@@ -7,19 +9,20 @@ import 'package:universoprematuro/app/modules/home/home_store.dart';
 import 'package:universoprematuro/app/modules/initial/initial_module.dart';
 import 'package:universoprematuro/app/modules/initial/initial_store.dart';
 import 'package:universoprematuro/app/modules/login/login_module.dart';
-import 'package:universoprematuro/app/modules/models/user_model.dart';
+
 import 'package:universoprematuro/app/modules/perfil/perfil_module.dart';
 import 'package:universoprematuro/app/modules/register/register_module.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
 
+import 'modules/bottomnavbar/bottomnavbar_store.dart';
 import 'modules/crescimento/crescimento_module.dart';
 import 'modules/crescimento/crescimento_store.dart';
 import 'modules/desenvolvimento/desenvolvimento_module.dart';
 import 'modules/desenvolvimento/desenvolvimento_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/login/login_store.dart';
-import 'modules/navbar/navbar_module.dart';
+
 
 class AppModule extends Module {
   @override
@@ -32,13 +35,14 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => EditprofileStore()),
     Bind.lazySingleton((i) => DesenvolvimentoStore()),
     Bind.lazySingleton((i) => CrescimentoStore()),
+    Bind.lazySingleton((i) => BottomnavbarStore()),
+    Bind.lazySingleton((i) => BottomnavbarPage()),
 
   ];
 
   @override
   final List<ModularRoute> routes = [
     ModuleRoute(Modular.initialRoute, module: InitialModule()),
-    // ModuleRoute('/navbar', module: NavbarModule()),
     ModuleRoute('/register', module: RegisterModule()),
     ModuleRoute('/login', module: LoginModule()),
     ModuleRoute('/home', module: HomeModule()),
@@ -47,6 +51,8 @@ class AppModule extends Module {
     ModuleRoute('/configuracoes', module: ConfiguracoesModule()),
     ModuleRoute('/desenvolvimento', module: DesenvolvimentoModule()),
     ModuleRoute('/crescimento', module: CrescimentoModule()),
+    ModuleRoute('/navbar', module: BottomnavbarModule()),
   ];
+  
 
 }

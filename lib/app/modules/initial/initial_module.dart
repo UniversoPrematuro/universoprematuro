@@ -24,19 +24,21 @@ class InitialModule extends Module {
     Bind.lazySingleton((i) => RegisterStore()),
     Bind.lazySingleton((i) => LoginStore()),
     Bind.lazySingleton((i) => PerfilStore()),
-    Bind.lazySingleton((i) => EditprofileStore())
+    Bind.lazySingleton((i) => EditprofileStore()),
+
   ];
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => InitialPage()),
-    ChildRoute('/login', child: (_, args) => LoginPage()),
-    ChildRoute('/register', child: (_, args) => RegisterPage()),
-    ChildRoute('/home', child: (_, args) => HomePage()),
-    ChildRoute('/editprofile', child: (_, args) => EditprofilePage()),
-    ChildRoute('/perfil', child: (_, args) => PerfilPage()),
-    ChildRoute('/desenvolvimento', child: (_, args) => DesenvolvimentoPage()),
-    ChildRoute('/crescimento', child: (_, args) => CrescimentoPage()),
-    ChildRoute('/configuracoes', child: (_, args) => ConfiguracoesPage()),
+    ChildRoute('/', child: (_, args) => const InitialPage()),
+    ChildRoute('/login', child: (_, args) => const LoginPage()),
+    ChildRoute('/register', child: (_, args) => const RegisterPage()),
+    ChildRoute('/home', child: (_, args) => const HomePage()),
+    ChildRoute('/editprofile', child: (_, args) => const EditprofilePage()),
+    ChildRoute('/perfil', child: (_, args) => const PerfilPage()),
+    ChildRoute('/desenvolvimento', child: (_, args) => const DesenvolvimentoPage()),
+    ChildRoute('/crescimento', child: (_, args) => const CrescimentoPage()),
+    ChildRoute('/configuracoes', child: (_, args) => const ConfiguracoesPage()),
+
   ];
 }

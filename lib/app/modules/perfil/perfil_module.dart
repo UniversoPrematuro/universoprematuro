@@ -4,7 +4,9 @@ import 'package:universoprematuro/app/modules/perfil/perfil_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
+import '../home/home_page.dart';
 import '../home/home_store.dart';
+
 
 class PerfilModule extends Module {
   @override
@@ -13,10 +15,12 @@ class PerfilModule extends Module {
     Bind.lazySingleton((i) => PerfilStore()),
     Bind.singleton((i) => UserModel()),
     Bind.singleton((i) => RegisterStore()),
+
   ];
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/perfil', child: (_, args) => PerfilPage()),
+    ChildRoute('/perfil', child: (_, args) => const PerfilPage()),
+    ChildRoute('/home', child: (_, args) => const HomePage()),
   ];
 }

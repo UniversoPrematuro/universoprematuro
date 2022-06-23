@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:universoprematuro/app/modules/navbar/navbar_store.dart';
+import 'package:universoprematuro/app/modules/bottomnavbar/bottomnavbar_store.dart';
  
 void main() {
-  late NavbarStore store;
+  late BottomnavbarStore store;
 
   setUpAll(() {
-    store = NavbarStore();
+    store = BottomnavbarStore();
   });
 
   test('increment count', () async {
