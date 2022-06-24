@@ -1,92 +1,75 @@
-
-
-// import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-// import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-// import 'package:universoprematuro/app/modules/configuracoes/configuracoes_page.dart';
-import 'package:universoprematuro/app/modules/home/home_store.dart';
+import 'package:universoprematuro/app/modules/configuracoes/configuracoes_page.dart';
+import 'package:universoprematuro/app/modules/crescimento/crescimento_page.dart';
+import 'package:universoprematuro/app/modules/desenvolvimento/desenvolvimento_page.dart';
+import 'package:universoprematuro/app/modules/home/home_module.dart';
+import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/nav/nav_store.dart';
-// import 'package:universoprematuro/app/modules/perfil/perfil_page.dart';
+import 'package:flutter/material.dart';
+import 'package:universoprematuro/app/modules/perfil/perfil_page.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
-import '../nav/nav_Page.dart';
-
-
-// import '../crescimento/crescimento_page.dart';
-// import '../desenvolvimento/desenvolvimento_page.dart';
-
-
-class HomePage extends StatefulWidget {
+class NavPage extends StatefulWidget {
   final String title;
-  const HomePage({Key? key, this.title = "Home"}) : super(key: key);
-
+  const NavPage({Key? key, this.title = 'NavPage'}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  NavPageState createState() => NavPageState();
 }
-
-class _HomePageState extends State<HomePage>{
-  final HomeStore store = Modular.get();
+class NavPageState extends State<NavPage> {
+  final NavStore store = Modular.get();
   final RegisterStore reg = Modular.get();
-  final NavPage nav = NavPage();
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: nav,
-      // bottomNavigationBar: AnimatedBuilder(
+      bottomNavigationBar: AnimatedBuilder(
         
-      //   animation: store.pageViewController,
-      //   builder: (context, snapshot) {
-      //     return BottomNavigationBar(
-      //       type: BottomNavigationBarType.fixed,
-      //       currentIndex: store.pageViewController.page?.round() ?? 0,
-      //       onTap: (index){
-      //         store.pageViewController.jumpToPage(index);
-      //       },
-      //       items: const [
+        animation: store.pageViewController,
+        builder: (context, snapshot) {
+          return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: store.pageViewController.page?.round() ?? 0,
+            
+            onTap: (index){
+              
+              store.pageViewController.jumpToPage(index);
+            },
+            items: const [
           
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.home_filled),
-      //         label: "Home",
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled),
+              label: "Home",
               
-      //         ),
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.person),
-      //         label: "Perfil",
+              ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Perfil",
               
-      //         ),
-      //       BottomNavigationBarItem(
-      //        icon: Icon(Icons.home_max_outlined),
-      //        label: "Desenvolvimento",
+              ),
+            BottomNavigationBarItem(
+             icon: Icon(Icons.home_max_outlined),
+             label: "Desenvolvimento",
               
-      //        ),
-      //       BottomNavigationBarItem(
-      //        icon: Icon(Icons.home_max_outlined),
-      //        label: "Crescimento",
+             ),
+            BottomNavigationBarItem(
+             icon: Icon(Icons.home_max_outlined),
+             label: "Crescimento",
               
-      //        ),
-      //       BottomNavigationBarItem(
-      //         icon: Icon(Icons.settings_rounded),
-      //         label: "Configurações",
+             ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings_rounded),
+              label: "Configurações",
               
-      //         ),
-      //     ]);
-      //   }
-      // ),
-      body: Container(
+              ),
+            ]
+          );
+        }
+      ),
+      
+      body: PageView(
+        controller: store.pageViewController,
+        children: [
+          Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         // controller: store.pageViewController,
@@ -242,15 +225,13 @@ class _HomePageState extends State<HomePage>{
             
             
             ),
-          ),
-        //   const HomePage(),
-        //   const PerfilPage(),
-        //   const DesenvolvimentoPage(),
-        //   const CrescimentoPage(),
-        //   const ConfiguracoesPage()
-
-        //  ]
-      ),
+          ),),
+          PerfilPage(),
+          DesenvolvimentoPage(),
+          CrescimentoPage(),
+          ConfiguracoesPage()
+        ],
+      )
     );
   }
 }

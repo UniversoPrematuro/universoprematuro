@@ -18,12 +18,15 @@ class ConfiguracoesPageState extends State<ConfiguracoesPage> {
       //   title: Text(widget.title),
       // ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Center(child: Text("TESTE CONFIG")),
-          ElevatedButton(onPressed: (){
-            Modular.to.pushNamed('/editprofile');
+          Center(child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height/1.079,
+            color: Colors.orange[100],
+            child: ElevatedButton(onPressed: (){
+              Modular.to.pushNamed('/editprofile');
           }, child: Text("Editar Perfil"))
+          ),)
         ],
       ),
     );

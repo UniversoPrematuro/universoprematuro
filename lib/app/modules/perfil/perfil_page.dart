@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/models/user_model.dart';
+import 'package:universoprematuro/app/modules/nav/nav_page.dart';
 import 'package:universoprematuro/app/modules/perfil/perfil_store.dart';
 import 'package:flutter/material.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
@@ -46,7 +47,7 @@ class PerfilPageState extends State<PerfilPage> {
               Container(
                 padding: const EdgeInsets.only(top: 16),
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 4,
+                height: MediaQuery.of(context).size.height / 2.5,
                 decoration: const BoxDecoration(
 
                   color: Colors.green,

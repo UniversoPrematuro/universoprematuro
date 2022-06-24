@@ -59,14 +59,18 @@ class EditprofilePageState extends State<EditprofilePage> {
                   fontSize: 20
                 ),),
                 const SizedBox(height: 30),
-                Center(
-                  child: CircleAvatar(
-                    radius: 65,
-                    
-                    backgroundColor: Colors.grey,
-                    backgroundImage: NetworkImage(store.urlImagemRec),
-                    
-                    )),
+                Observer(
+                  builder: (_) {
+                  return Center(
+                    child: CircleAvatar(
+                      radius: 65,
+                      
+                      backgroundColor: Colors.grey,
+                      backgroundImage: NetworkImage(store.urlImagemRec),
+                      
+                      ));
+                  }
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -274,6 +278,7 @@ class EditprofilePageState extends State<EditprofilePage> {
                   ))
                 ),
                 onPressed: (){
+                  
                   store.saveData();
                 }, 
                 child: Text("Salvar dados", style: TextStyle(

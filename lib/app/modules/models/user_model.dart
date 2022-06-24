@@ -14,6 +14,9 @@ class UserModel{
   @observable
   String pass = '';
 
+  @observable
+  String? birth;
+
   
   @action 
   changeName(String value) => name = value;

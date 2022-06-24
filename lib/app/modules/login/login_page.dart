@@ -74,7 +74,7 @@ class LoginPageState extends State<LoginPage> {
                                  ))),
                           ElevatedButton(
                               onPressed: () {
-                                Modular.to.pushNamed('/home');
+                                Modular.to.pushNamed('/nav/home');
                               },
                               child: const Text("Entre agora!"))
                         ],

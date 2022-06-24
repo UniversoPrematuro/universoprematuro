@@ -111,16 +111,16 @@ abstract class _EditprofileStoreBase with Store, Disposable {
 
     Map<String, dynamic> data = {
       "Criança" : perfil.nameChild,
-      "Data de nasc. criança": perfil.birth,
+      "nasc. criança": perfil.birth,
       "GesAge" : int.tryParse(controllerGesAge.text.substring(9,11))!*7 +
-                int.tryParse(controllerGesAge.text.substring(20,21))! + 10,
+                int.tryParse(controllerGesAge.text.substring(20,21))! + 10.round(),
       "sexo" : escolhaUser,
       "registro" : DateTime.now().toString(),
     };
     db.collection("users").doc(idLogado).update(data).then((firebaseUser) {
       saveData();
-      Modular.to.pushNamed("/home/perfil");
-      ;
+      Modular.to.popUntil(ModalRoute.withName("/home"));
+      
     });
   }
 

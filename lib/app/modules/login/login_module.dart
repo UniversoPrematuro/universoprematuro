@@ -3,10 +3,9 @@ import 'package:universoprematuro/app/modules/home/home_store.dart';
 import 'package:universoprematuro/app/modules/login/login_Page.dart';
 import 'package:universoprematuro/app/modules/login/login_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-import '../bottomnavbar/bottomnavbar_Page.dart';
-import '../bottomnavbar/bottomnavbar_store.dart';
+import 'package:universoprematuro/app/modules/nav/nav_store.dart';
 import '../initial/initial_Page.dart';
+import '../nav/nav_Page.dart';
 import '../perfil/perfil_store.dart';
 
 class LoginModule extends Module {
@@ -15,15 +14,16 @@ class LoginModule extends Module {
     Bind.lazySingleton((i) => LoginStore()),
     Bind.lazySingleton((i) => HomeStore()),
     Bind.lazySingleton((i) => PerfilStore()),
-    Bind.singleton((i) => BottomnavbarStore()),
+    Bind.lazySingleton((i) => NavStore()),
+
 
   ];
 
   @override
   final List<ModularRoute> routes = [
+    ChildRoute('/initial', child: (_, args) => const InitialPage()),
     ChildRoute('/login', child: (_, args) => const LoginPage()),
     ChildRoute('/home', child: (_, args) => const HomePage()),
-    ChildRoute('/initial', child: (_, args) => const InitialPage()),
-    ChildRoute('/navbar', child: (_, args) => const BottomnavbarPage()),
+    ChildRoute('/nav', child: (_, args) => const NavPage()),
   ];
 }

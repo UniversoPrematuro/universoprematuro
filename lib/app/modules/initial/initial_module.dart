@@ -7,6 +7,7 @@ import 'package:universoprematuro/app/modules/initial/initial_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/login/login_page.dart';
 import 'package:universoprematuro/app/modules/login/login_store.dart';
+import 'package:universoprematuro/app/modules/nav/nav_store.dart';
 import 'package:universoprematuro/app/modules/perfil/perfil_store.dart';
 import 'package:universoprematuro/app/modules/register/register_page.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
@@ -14,6 +15,7 @@ import 'package:universoprematuro/app/modules/register/register_store.dart';
 import '../configuracoes/configuracoes_Page.dart';
 import '../crescimento/crescimento_Page.dart';
 import '../desenvolvimento/desenvolvimento_Page.dart';
+import '../nav/nav_Page.dart';
 import '../perfil/perfil_page.dart';
 
 class InitialModule extends Module {
@@ -25,6 +27,7 @@ class InitialModule extends Module {
     Bind.lazySingleton((i) => LoginStore()),
     Bind.lazySingleton((i) => PerfilStore()),
     Bind.lazySingleton((i) => EditprofileStore()),
+    Bind.lazySingleton((i) => NavStore()),
 
   ];
 
@@ -39,6 +42,7 @@ class InitialModule extends Module {
     ChildRoute('/desenvolvimento', child: (_, args) => const DesenvolvimentoPage()),
     ChildRoute('/crescimento', child: (_, args) => const CrescimentoPage()),
     ChildRoute('/configuracoes', child: (_, args) => const ConfiguracoesPage()),
+    ChildRoute('/configuracoes', child: (_, args) => const NavPage()),
 
   ];
 }

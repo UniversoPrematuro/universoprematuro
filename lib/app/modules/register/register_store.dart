@@ -88,10 +88,12 @@ abstract class _RegisterStoreBase with Store, Disposable {
 
     user.email = controllerEmail.text;
     user.name = controllerNameMother.text;
+    user.birth = controllerBirthMother.text;
 
     Map<String, dynamic> data = {
       "nome da mãe" : user.name,
-      "email" : user.email
+      "email" : user.email,
+      "nasc. mãe" : user.birth
     };
     db.collection("users").doc(idLogado).set(data);
 
