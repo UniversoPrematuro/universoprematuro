@@ -26,20 +26,21 @@ abstract class _RegisterStoreBase with Store, Disposable {
   TextEditingController controllerNameMother = TextEditingController();
 
   @observable
-  TextEditingController controllerBirthMother = TextEditingController();
-
-  @observable
   TextEditingController controllerEmail = TextEditingController();
 
   @observable
   TextEditingController controllerPass = TextEditingController();
 
-  @observable
-  String name = '';
 
   @computed
   bool get isValid {
-    return validationName() == null;
+    return validateName() == null && validatePass() == null && validateEmail() == null;
+  }
+
+  @action
+  recupera() {
+    String nome = controllerNameMother.text;
+    return nome;
   }
 
   
@@ -47,13 +48,40 @@ abstract class _RegisterStoreBase with Store, Disposable {
   @action
   changeName(String value) => controllerNameMother.text = value;
 
-  validationName() {
-    if (controllerNameMother.text.isEmpty) {
+  @action
+  changeEmail(String value) => controllerEmail.text = value;
+
+  @action
+  changePass(String value) => controllerPass.text = value;
+
+  validateName() {
+    var user = UserModel();
+    user.name = controllerNameMother.text;
+    if (user.name.isEmpty) {
       return 'O campo é obrigatorio';
-    } else if (controllerNameMother.text.length < 3) {
+    } else if (user.name.length < 3) {
       return 'O campo deve ter mais de 3 caracter';
-    } else {
-      return;
+
+    }
+  }
+  validateEmail() {
+    var user = UserModel();
+    user.email = controllerEmail.text;
+    if (user.email.isEmpty) {
+      return 'O campo é obrigatorio';
+    } else if (!user.email.contains("@")) {
+      return 'Insira um e-mail válido!';
+
+    }
+  }
+  validatePass() {
+    var user = UserModel();
+    user.pass = controllerPass.text;
+    if (user.pass.isEmpty) {
+      return 'O campo é obrigatorio';
+    } else if (user.pass.length < 5) {
+      return 'A senha precisa ter mais de 5 caracteres';
+
     }
   }
 
@@ -88,12 +116,10 @@ abstract class _RegisterStoreBase with Store, Disposable {
 
     user.email = controllerEmail.text;
     user.name = controllerNameMother.text;
-    user.birth = controllerBirthMother.text;
 
     Map<String, dynamic> data = {
       "nome da mãe" : user.name,
       "email" : user.email,
-      "nasc. mãe" : user.birth
     };
     db.collection("users").doc(idLogado).set(data);
 

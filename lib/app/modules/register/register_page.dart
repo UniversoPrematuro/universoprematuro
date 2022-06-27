@@ -20,6 +20,12 @@ class RegisterPageState extends State<RegisterPage> {
     // TODO: implement dispose
     super.dispose();
   }
+  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
 
   @override
@@ -56,50 +62,51 @@ class RegisterPageState extends State<RegisterPage> {
                           Observer(builder: (_) {
                             return TextField(
                               controller: store.controllerNameMother,
-                              // onChanged: (value) => store.controllerName.text,
+                              onChanged: (value) => store.changeName,
                               decoration: InputDecoration(
-                                errorText: store.validationName(),
+                                errorText: store.validateName(),
                                   labelText: "Nome da mãe",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   )));
                           }),
 
-                          TextField(
-                              controller: store.controllerBirthMother,
-                              decoration: InputDecoration(
-                                  labelText: "Data de nasc.",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ))),
                           
                           const SizedBox(height: 8),
-                          TextField(
-                              controller: store.controllerEmail,
-                              decoration: InputDecoration(
-                                  labelText: "Email",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ))),
+                          Observer(
+                            builder: (_) {
+                            return TextField(
+                                controller: store.controllerEmail,
+                                decoration: InputDecoration(
+                                  errorText: store.validateEmail(),
+                                    labelText: "Email",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    )));}
+                          ),
                           const SizedBox(height: 8),
-                          TextField(
-                            obscureText: true,
-                              controller: store.controllerPass,
-                              decoration: InputDecoration(
-                                  labelText: "Senha",
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ))),
+                          Observer(
+                            builder: (_){
+                            return TextField(
+                              obscureText: true,
+                                controller: store.controllerPass,
+                                decoration: InputDecoration(
+                                  errorText: store.validatePass(),
+                                    labelText: "Senha",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    )));},
+                          ),
                             const SizedBox(height: 8),
                             
                           ElevatedButton(
-                              onPressed: () {
+                              onPressed: store.isValid ? () {
                                 
                                   store.registerUser(UserModel());
                                   
                                 
                                 // store.registerUser(UserModel());
-                              },
+                              } : null,
                               child: const Text("Cadastre-se")),
                         ],
                       ),

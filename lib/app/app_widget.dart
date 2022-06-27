@@ -12,7 +12,6 @@ class AppWidget extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch().copyWith(
         primary:const Color.fromARGB(255, 101, 187, 88) ,
         secondary: const Color.fromARGB(255, 255, 193, 143)),
-        inputDecorationTheme: InputDecorationTheme(hoverColor: Colors.red),
         elevatedButtonTheme: ElevatedButtonThemeData(style: TextButton.styleFrom(
           elevation: 20,
           shadowColor: Colors.black,

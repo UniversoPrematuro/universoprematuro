@@ -6,10 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 // import 'package:universoprematuro/app/modules/configuracoes/configuracoes_page.dart';
 import 'package:universoprematuro/app/modules/home/home_store.dart';
+import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:universoprematuro/app/modules/nav/nav_store.dart';
 // import 'package:universoprematuro/app/modules/perfil/perfil_page.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 
+import '../editprofile/editprofile_store.dart';
 import '../nav/nav_Page.dart';
 
 
@@ -28,7 +30,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>{
   final HomeStore store = Modular.get();
   final RegisterStore reg = Modular.get();
+  final EditprofileStore ed = Modular.get();
   final NavPage nav = NavPage();
+  var user = UserModel();
 
   @override
   void dispose() {
@@ -115,7 +119,7 @@ class _HomePageState extends State<HomePage>{
                               )),
                               Container(
                                 margin: const EdgeInsets.only(top: 25),
-                                child: Text(reg.controllerNameMother.text,
+                                child: Text(ed.controllerNameChild.text,
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 28,

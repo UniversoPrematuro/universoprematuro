@@ -33,23 +33,6 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  late final _$controllerBirthMotherAtom =
-      Atom(name: '_RegisterStoreBase.controllerBirthMother', context: context);
-
-  @override
-  TextEditingController get controllerBirthMother {
-    _$controllerBirthMotherAtom.reportRead();
-    return super.controllerBirthMother;
-  }
-
-  @override
-  set controllerBirthMother(TextEditingController value) {
-    _$controllerBirthMotherAtom.reportWrite(value, super.controllerBirthMother,
-        () {
-      super.controllerBirthMother = value;
-    });
-  }
-
   late final _$controllerEmailAtom =
       Atom(name: '_RegisterStoreBase.controllerEmail', context: context);
 
@@ -82,22 +65,6 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
     });
   }
 
-  late final _$nameAtom =
-      Atom(name: '_RegisterStoreBase.name', context: context);
-
-  @override
-  String get name {
-    _$nameAtom.reportRead();
-    return super.name;
-  }
-
-  @override
-  set name(String value) {
-    _$nameAtom.reportWrite(value, super.name, () {
-      super.name = value;
-    });
-  }
-
   late final _$idLogadoAtom =
       Atom(name: '_RegisterStoreBase.idLogado', context: context);
 
@@ -126,11 +93,44 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
       ActionController(name: '_RegisterStoreBase', context: context);
 
   @override
+  dynamic recupera() {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.recupera');
+    try {
+      return super.recupera();
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic changeName(String value) {
     final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
         name: '_RegisterStoreBase.changeName');
     try {
       return super.changeName(value);
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeEmail(String value) {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.changeEmail');
+    try {
+      return super.changeEmail(value);
+    } finally {
+      _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changePass(String value) {
+    final _$actionInfo = _$_RegisterStoreBaseActionController.startAction(
+        name: '_RegisterStoreBase.changePass');
+    try {
+      return super.changePass(value);
     } finally {
       _$_RegisterStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -151,10 +151,8 @@ mixin _$RegisterStore on _RegisterStoreBase, Store {
   String toString() {
     return '''
 controllerNameMother: ${controllerNameMother},
-controllerBirthMother: ${controllerBirthMother},
 controllerEmail: ${controllerEmail},
 controllerPass: ${controllerPass},
-name: ${name},
 idLogado: ${idLogado},
 isValid: ${isValid}
     ''';

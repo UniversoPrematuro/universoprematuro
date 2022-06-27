@@ -68,7 +68,7 @@ class PerfilPageState extends State<PerfilPage> {
                             padding: const EdgeInsets.only(left: 16),
                             child: Column(
                               children:  <Widget>[
-                                Text('Nome: ${stores.controllerNameMother.text} ',
+                                Text('Nome: ${ep.controllerNameChild.text} ',
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600

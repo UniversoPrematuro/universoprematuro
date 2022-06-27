@@ -119,7 +119,7 @@ abstract class _EditprofileStoreBase with Store, Disposable {
     };
     db.collection("users").doc(idLogado).update(data).then((firebaseUser) {
       saveData();
-      Modular.to.popUntil(ModalRoute.withName("/home"));
+
       
     });
   }

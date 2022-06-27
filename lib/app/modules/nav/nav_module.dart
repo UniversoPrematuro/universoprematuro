@@ -32,7 +32,7 @@ class NavModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => const NavPage()),
+    ChildRoute('/nav', child: (_, args) => const NavPage()),
     ChildRoute('/login', child: (_, args) => const LoginPage()),
     ChildRoute('/register', child: (_, args) => const RegisterPage()),
     ChildRoute('/home', child: (_, args) => const HomePage()),

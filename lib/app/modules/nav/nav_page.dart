@@ -98,7 +98,7 @@ class NavPageState extends State<NavPage> {
                               )),
                               Container(
                                 margin: const EdgeInsets.only(top: 25),
-                                child: Text(reg.controllerNameMother.text,
+                                child: Text(reg.recupera(),
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 28,
