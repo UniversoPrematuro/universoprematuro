@@ -2,7 +2,6 @@ import 'package:universoprematuro/app/modules/configuracoes/configuracoes_page.d
 import 'package:universoprematuro/app/modules/crescimento/crescimento_page.dart';
 import 'package:universoprematuro/app/modules/desenvolvimento/desenvolvimento_page.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_page.dart';
-import 'package:universoprematuro/app/modules/home/home_module.dart';
 import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/login/login_page.dart';
 import 'package:universoprematuro/app/modules/nav/nav_Page.dart';

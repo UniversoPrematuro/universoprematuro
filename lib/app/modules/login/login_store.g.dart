@@ -41,12 +41,29 @@ mixin _$LoginStore on _LoginStoreBase, Store {
     });
   }
 
-  late final _$loginAsyncAction =
-      AsyncAction('_LoginStoreBase.login', context: context);
+  late final _$_LoginStoreBaseActionController =
+      ActionController(name: '_LoginStoreBase', context: context);
 
   @override
-  Future<void> login() {
-    return _$loginAsyncAction.run(() => super.login());
+  dynamic changeEmail(String value) {
+    final _$actionInfo = _$_LoginStoreBaseActionController.startAction(
+        name: '_LoginStoreBase.changeEmail');
+    try {
+      return super.changeEmail(value);
+    } finally {
+      _$_LoginStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changePass(String value) {
+    final _$actionInfo = _$_LoginStoreBaseActionController.startAction(
+        name: '_LoginStoreBase.changePass');
+    try {
+      return super.changePass(value);
+    } finally {
+      _$_LoginStoreBaseActionController.endAction(_$actionInfo);
+    }
   }
 
   @override

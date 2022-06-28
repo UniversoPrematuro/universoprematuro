@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: unused_import
+
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 

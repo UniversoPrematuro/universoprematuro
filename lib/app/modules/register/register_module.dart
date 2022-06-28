@@ -1,4 +1,3 @@
-import 'package:universoprematuro/app/app_module.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:universoprematuro/app/modules/nav/nav_page.dart';
@@ -28,10 +27,10 @@ class RegisterModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/register', child: (_, args) => RegisterPage()),
-    ChildRoute('/home', child: (_, args) => HomePage()),
-    ChildRoute('/perfil', child: (_, args) => PerfilPage()),
-    ChildRoute('/editprofile', child: (_, args) => EditprofilePage()),
-    ChildRoute('/nav', child: (_, args) => NavPage()),
+    ChildRoute('/register', child: (_, args) => const RegisterPage()),
+    ChildRoute('/home', child: (_, args) => const HomePage()),
+    ChildRoute('/perfil', child: (_, args) => const PerfilPage()),
+    ChildRoute('/editprofile', child: (_, args) => const EditprofilePage()),
+    ChildRoute('/nav', child: (_, args) => const NavPage()),
   ];
 }

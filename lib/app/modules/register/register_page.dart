@@ -3,7 +3,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 import 'package:flutter/material.dart';
-import 'package:validatorless/validatorless.dart';
 
 class RegisterPage extends StatefulWidget {
   final String title;

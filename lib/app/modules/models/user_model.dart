@@ -6,18 +6,20 @@ class UserModel{
   final RegisterStore store = RegisterStore();
 
   @observable
-  late String name;
+  String? name;
 
   @observable
-  late String email;
+  String? email;
 
   @observable
-  late String pass;
+  String? pass;
 
 
-  UserModel({String? name, String? email, String? pass});
+  UserModel({this.name,this.email,this.pass});
 
-  
+
+
+
   @action 
   changeName(String value) => name = value;
 

@@ -8,4 +8,4 @@ import 'app/app_widget.dart';
 void main() async {
   WidgetsFlutterBinding().ensureVisualUpdate();
   await Firebase.initializeApp();
-  runApp(ModularApp(module: AppModule(), child: AppWidget()));}
+  runApp(ModularApp(module: AppModule(), child: const AppWidget()));}

@@ -1,9 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
-import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/models/user_model.dart';
-import 'package:universoprematuro/app/modules/nav/nav_page.dart';
 import 'package:universoprematuro/app/modules/perfil/perfil_store.dart';
 import 'package:flutter/material.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
@@ -68,30 +66,33 @@ class PerfilPageState extends State<PerfilPage> {
                             padding: const EdgeInsets.only(left: 16),
                             child: Column(
                               children:  <Widget>[
-                                Text('Nome: ${ep.controllerNameChild.text} ',
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600
-                                  ),
-                                ),
-                                Text('Mãe: ',
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600
-                                  ),
-                                ),
-                                Text('Aniversario: ',
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600
-                                  ),
-                                ),
-                                Text('Aniversario: ',
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600
-                                  ),
-                                ),
+                                Observer(
+                                  builder: (_) {
+                                  return Text('Nome: ${ep.controllerNameChild.text} ',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600
+                                    ),
+                                  );
+                                }),
+                                Observer(
+                                  builder: (_) {
+                                  return Text('Mãe: ${stores.controllerNameMother.text}',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600
+                                    ),
+                                  );
+                                }),
+                                Observer(
+                                  builder: (_){
+                                  return Text('Aniversario: ${ep.controllerBirthChild.text}',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600
+                                    ),
+                                  );
+                                }),
                               ],
                               
                               
@@ -100,7 +101,7 @@ class PerfilPageState extends State<PerfilPage> {
                           ),
             
                              Padding(
-                               padding: EdgeInsets.only(/*left: 88, bottom: 200*/),
+                               padding: const EdgeInsets.only(/*left: 88, bottom: 200*/),
                                child: CircleAvatar(
                                radius: 55,
                                backgroundColor: Colors.black,
@@ -108,7 +109,7 @@ class PerfilPageState extends State<PerfilPage> {
                               //  backgroundImage: NetworkImage(),
                                  ),
                                 ),
-                                ElevatedButton(onPressed: (){Modular.to.pushReplacementNamed("/home");}, child: Text("Editar"))
+                                ElevatedButton(onPressed: (){Modular.to.pushReplacementNamed("/home");}, child: const Text("Editar"))
                               ],
                             ),
                           ]

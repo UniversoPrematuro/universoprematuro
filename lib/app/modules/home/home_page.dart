@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: unused_import, library_private_types_in_public_api
+
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_mobx/flutter_mobx.dart';
@@ -31,7 +33,7 @@ class _HomePageState extends State<HomePage>{
   final HomeStore store = Modular.get();
   final RegisterStore reg = Modular.get();
   final EditprofileStore ed = Modular.get();
-  final NavPage nav = NavPage();
+  final NavPage nav = const NavPage();
   var user = UserModel();
 
   @override
@@ -90,7 +92,7 @@ class _HomePageState extends State<HomePage>{
       //     ]);
       //   }
       // ),
-      body: Container(
+      body: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         // controller: store.pageViewController,

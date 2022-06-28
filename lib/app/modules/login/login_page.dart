@@ -1,9 +1,10 @@
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universoprematuro/app/modules/home/home_page.dart';
 import 'package:universoprematuro/app/modules/login/login_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universoprematuro/app/modules/models/user_model.dart';
+import 'package:universoprematuro/app/modules/register/register_store.dart';
 
-import '../initial/initial_Page.dart';
 
 class LoginPage extends StatefulWidget {
   final String title;
@@ -13,6 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 class LoginPageState extends State<LoginPage> {
   final LoginStore store = Modular.get();
+  final RegisterStore reg = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -57,24 +59,34 @@ class LoginPageState extends State<LoginPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                         TextField(
-                          controller: store.controllerEmail,
-                             decoration: InputDecoration(
-                                 labelText: "Email",
-                                 border: OutlineInputBorder(
-                                   borderRadius: BorderRadius.circular(8),
-                                 ))),
+                         Observer(
+                          builder: (_) {
+                           return TextField(
+                            controller: store.controllerEmail,
+                            onChanged:(value) =>  reg.changeEmail,
+                               decoration: InputDecoration(
+                                errorText: reg.validateEmail(),
+                                   labelText: "Email",
+                                   border: OutlineInputBorder(
+                                     borderRadius: BorderRadius.circular(8),
+                                   )));
+                              }),
                          const SizedBox(height: 8),
-                         TextField(
-                          controller: store.controllerPass,
-                             decoration: InputDecoration(
-                                 labelText: "Senha",
-                                 border: OutlineInputBorder(
-                                   borderRadius: BorderRadius.circular(8),
-                                 ))),
+                         Observer(
+                          builder: (_) {
+                           return TextField(
+                            controller: store.controllerPass,
+                            onChanged:(value) => reg.changePass,
+                               decoration: InputDecoration(
+                                   labelText: "Senha",
+                                   errorText: reg.validatePass(),
+                                   border: OutlineInputBorder(
+                                     borderRadius: BorderRadius.circular(8),
+                                   )));
+                      }),
                           ElevatedButton(
                               onPressed: () {
-                                Modular.to.pushNamed('/home');
+                                store.login(UserModel());
                               },
                               child: const Text("Entre agora!"))
                         ],

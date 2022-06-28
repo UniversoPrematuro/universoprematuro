@@ -14,7 +14,7 @@ class ConfiguracoesModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => ConfiguracoesPage()),
-    ChildRoute('/editprofile', child: (_, args) => EditprofilePage()),
+    ChildRoute('/', child: (_, args) => const ConfiguracoesPage()),
+    ChildRoute('/editprofile', child: (_, args) => const EditprofilePage()),
   ];
 }

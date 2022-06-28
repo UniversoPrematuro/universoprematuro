@@ -11,21 +11,56 @@ class CrescimentoPage extends StatefulWidget {
 class CrescimentoPageState extends State<CrescimentoPage> {
   final CrescimentoStore store = Modular.get();
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),
-      body: Column(
+      body: GridView.count(
+          padding: const EdgeInsets.all(10.0),
+          crossAxisCount: 2,
+          mainAxisSpacing: 20,
+          crossAxisSpacing: 20,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: (){
+                Navigator.pushReplacementNamed(context, "/taskone");
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.green),
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                ))
+                
+                ),
+              child: const Text("1 - 3 Meses")
+              
+              ),
+          ]
+        ),
+    );
+  }
+}
+/*
+Column(
         children: <Widget>[
           Center(child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height/1.1,
             color: Colors.green,
+            child: GridView.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              children: <Widget>[
+                
+              ]
+              )
           ),)
         ],
-      ),
-    );
-  }
-}
+      )
+
+ */

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:universoprematuro/app/modules/models/perfil_model.dart';
 // import 'package:universoprematuro/app/modules/models/user_model.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:universoprematuro/app/modules/editprofile/widgets/circular.dart';
 
 import '../register/register_store.dart';
 
@@ -49,7 +50,7 @@ class EditprofilePageState extends State<EditprofilePage> {
           child: Column(
             children: <Widget>[
               Column(children: [
-                Text("Mamãe, ${reg.controllerNameMother.text}", style: TextStyle(
+                Text("Mamãe, ${reg.controllerNameMother.text}", style: const TextStyle(
                   color: Colors.white,
                   fontSize: 22
                 ),),
@@ -59,14 +60,24 @@ class EditprofilePageState extends State<EditprofilePage> {
                   fontSize: 20
                 ),),
                 const SizedBox(height: 30),
+               
                 Observer(
                   builder: (_) {
                   return Center(
                     child: CircleAvatar(
-                      radius: 65,
+                      radius: 65, 
                       
                       backgroundColor: Colors.grey,
                       backgroundImage: NetworkImage(store.urlImagemRec),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: store.upload
+                              ?  DottedCircularProgressIndicatorFb(
+                                currentDotColor: Colors.pink, 
+                                defaultDotColor: Colors.white, 
+                                numDots: 10,       
+                                  )
+                              : Container()),
                       
                       ));
                   }
@@ -282,7 +293,7 @@ class EditprofilePageState extends State<EditprofilePage> {
                   store.saveData();
                   Modular.to.pushNamed('/home/nav');
                 }, 
-                child: Text("Salvar dados", style: TextStyle(
+                child: const Text("Salvar dados", style: TextStyle(
                   color: Colors.green,
                   fontSize: 18,
                   fontWeight: FontWeight.w500 

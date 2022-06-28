@@ -1,8 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/desenvolvimento/desenvolvimento_store.dart';
 import 'package:flutter/material.dart';
-import 'package:universoprematuro/app/modules/nav/nav_page.dart';
-import 'package:universoprematuro/app/modules/nav/nav_store.dart';
 
 class DesenvolvimentoPage extends StatefulWidget {
   final String title;
@@ -28,7 +26,7 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
           color: Colors.orange[100]
         ),
         child: GridView.count(
-          padding: EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10.0),
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
@@ -44,7 +42,7 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
                 ))
                 
                 ),
-              child: Text("1 - 3 Meses")
+              child: const Text("1 - 3 Meses")
               
               ),
               ElevatedButton(
@@ -58,7 +56,7 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
                 ))
                 
                 ),
-              child: Text("4 - 7 Meses")
+              child: const Text("4 - 7 Meses")
               
               ),
               ElevatedButton(
@@ -70,7 +68,7 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
                 ))
                 
                 ),
-              child: Text("8 - 12 Meses")
+              child: const Text("8 - 12 Meses")
               
               ),
           ]

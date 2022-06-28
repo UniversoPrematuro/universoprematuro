@@ -25,7 +25,7 @@ class ConfiguracoesPageState extends State<ConfiguracoesPage> {
             color: Colors.orange[100],
             child: ElevatedButton(onPressed: (){
               Modular.to.pushNamed('/editprofile');
-          }, child: Text("Editar Perfil"))
+          }, child: const Text("Editar Perfil"))
           ),)
         ],
       ),

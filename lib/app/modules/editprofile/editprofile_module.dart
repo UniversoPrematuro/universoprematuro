@@ -19,7 +19,7 @@ class EditprofileModule extends Module {
     Bind.lazySingleton((i) => PerfilStore()),
     Bind.singleton((i) => PerfilModel()),
     Bind.singleton((i) => NavStore()),
-    Bind.singleton((i) => NavPage()),
+    Bind.singleton((i) => const NavPage()),
 
   ];
 

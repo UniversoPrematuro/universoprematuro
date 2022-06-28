@@ -1,16 +1,16 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:universoprematuro/app/modules/crescimento/crescimento_store.dart';
+// import 'package:flutter_test/flutter_test.dart';
+// import 'package:universoprematuro/app/modules/crescimento/crescimento_store.dart';
  
-void main() {
-  late CrescimentoStore store;
+// void main() {
+//   late CrescimentoStore store;
 
-  setUpAll(() {
-    store = CrescimentoStore();
-  });
+//   setUpAll(() {
+//     store = CrescimentoStore();
+//   });
 
-  test('increment count', () async {
-    expect(store.value, equals(0));
-    store.increment();
-    expect(store.value, equals(1));
-  });
-}
+//   test('increment count', () async {
+//     expect(store.value, equals(0));
+//     store.increment();
+//     expect(store.value, equals(1));
+//   });
+// }

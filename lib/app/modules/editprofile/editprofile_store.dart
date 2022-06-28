@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, library_private_types_in_public_api
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -90,6 +92,7 @@ abstract class _EditprofileStoreBase with Store, Disposable {
       }
      });
      task.then((TaskSnapshot taskSnapshot) => recuperarUrlImg(taskSnapshot));
+     await Future.delayed(const Duration(seconds: 2));
   }
 
   Future recuperarUrlImg(TaskSnapshot taskSnapshot) async {
@@ -137,9 +140,16 @@ abstract class _EditprofileStoreBase with Store, Disposable {
   // 'gage':int.parse(_gageController.value.substring(9,11))*7 +
   //             int.parse(_gageController.value.substring(20,21)),
 
+/* 
+2 meses = +/- 8 semanas - idade cronológica
 
 
-  
+ */
+
+ /*  Somamos sua idade gestacional de nascimento em semanas (29 semanas) 
+ ao tempo, também em semanas, transcorrido após seu nascimento (8 semanas
+ e teremos como resultado 37 [29 sem + 8 sem = 37 sem]. 
+ É como se hoje ele fosse um bebê de 37 semanas de gestação. Teoricamente não deveria nem ter nascido ainda. */ 
 
 
 
