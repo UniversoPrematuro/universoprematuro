@@ -61,9 +61,9 @@ class RegisterPageState extends State<RegisterPage> {
                           Observer(builder: (_) {
                             return TextField(
                               controller: store.controllerNameMother,
-                              onChanged: (value) => store.changeName,
+                              // onChanged: (value) => store.changeName,
                               decoration: InputDecoration(
-                                errorText: store.validateName(),
+                                // errorText: store.validateName(),
                                   labelText: "Nome da mãe",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),

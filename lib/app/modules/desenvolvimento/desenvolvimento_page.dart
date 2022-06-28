@@ -16,14 +16,16 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
     return Scaffold(
        appBar: AppBar(
          title: Text(widget.title),
-         centerTitle: true
+         centerTitle: true,
+         backgroundColor:  Color.fromARGB(255, 255, 193, 143),
+         elevation: 0,
        ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.orange[100]
+        decoration: const BoxDecoration(
+          color:  Color.fromARGB(255, 255, 193, 143)
         ),
         child: GridView.count(
           padding: const EdgeInsets.all(10.0),
@@ -36,13 +38,13 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
                 Navigator.pushReplacementNamed(context, "/taskone");
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.green),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)
                 ))
                 
                 ),
-              child: const Text("1 - 3 Meses")
+              child: const Text("1 - 3 Meses", style: TextStyle(color:  Colors.green),)
               
               ),
               ElevatedButton(
@@ -50,25 +52,25 @@ class DesenvolvimentoPageState extends State<DesenvolvimentoPage> {
                 Navigator.pushReplacementNamed(context, "/tasktwo");
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.green),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)
                 ))
                 
                 ),
-              child: const Text("4 - 7 Meses")
+              child: const Text("4 - 7 Meses", style: TextStyle(color:  Colors.green))
               
               ),
               ElevatedButton(
               onPressed: (){},
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.green),
+                backgroundColor: MaterialStateProperty.all(Colors.white),
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)
                 ))
                 
                 ),
-              child: const Text("8 - 12 Meses")
+              child: const Text("8 - 12 Meses", style: TextStyle(color:  Colors.green))
               
               ),
           ]

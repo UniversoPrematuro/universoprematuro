@@ -33,20 +33,15 @@ abstract class _RegisterStoreBase with Store, Disposable {
 
   @computed
   bool get isValid {
-    return validateName() == null && validatePass() == null && validateEmail() == null;
+    return validatePass() == null && validateEmail() == null;
   }
 
 
-  @action
-  recupera() {
-    String nome = controllerNameMother.text;
-    return nome;
-  }
 
   
   
-  @action
-  changeName(String value) => controllerNameMother.text = value;
+  // @action
+  // changeName(String value) => controllerNameMother.text = value;
 
   @action
   changeEmail(String value) => controllerEmail.text = value;
@@ -54,16 +49,16 @@ abstract class _RegisterStoreBase with Store, Disposable {
   @action
   changePass(String value) => controllerPass.text = value;
 
-  validateName() {
-    var user = UserModel();
-    user.name = controllerNameMother.text;
-    if (user.name!.isEmpty) {
-      return 'O campo é obrigatorio';
-    } else if (user.name!.length < 3) {
-      return 'O campo deve ter mais de 3 caracter';
+  // validateName() {
+  //   var user = UserModel();
+  //   user.name = controllerNameMother.text;
+  //   if (user.name!.isEmpty) {
+  //     return 'O campo é obrigatorio';
+  //   } else if (user.name!.length < 3) {
+  //     return 'O campo deve ter mais de 3 caracter';
 
-    }
-  }
+  //   }
+  // }
   validateEmail() {
     var user = UserModel();
     user.email = controllerEmail.text;

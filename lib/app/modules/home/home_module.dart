@@ -25,6 +25,7 @@ class HomeModule extends Module {
     Bind.lazySingleton((i) => DesenvolvimentoStore()),
     Bind.lazySingleton((i) => CrescimentoStore()),
     Bind.lazySingleton((i) => NavStore()),
+    Bind.lazySingleton((i) => RegisterStore()),
     Bind.lazySingleton((i) => UserModel())
  ];
 
