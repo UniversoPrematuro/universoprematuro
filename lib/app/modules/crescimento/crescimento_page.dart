@@ -29,7 +29,7 @@ class CrescimentoPageState extends State<CrescimentoPage> {
       // ),
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.green,
+          color: const Color.fromARGB(255, 101, 187, 88),
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: SingleChildScrollView(
@@ -53,121 +53,75 @@ class CrescimentoPageState extends State<CrescimentoPage> {
                  Center(
                   child: SizedBox(
                     width: 350,
-                    height: 610,
+                    height: MediaQuery.of(context).size.height/2,
                     child: Card(
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
                       elevation: 20,
                       color: Colors.white,
-                      child:  Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Observer(
-                          builder: (_){
-                          return Text(
-                            '' 'Mamãe! '
-                                'Escolha um ambiente agradável, tranquilo e calmo. Um ambiente '
-                                'que você se sinta confortável;\n\n'
-                                'Se você  gostar de música, coloque uma música relaxante, '
-                                'que acalme. Isso vai te ajudar a amamentar;\n\n'
-                                'Seja persistente na amamentação, não desista!\n\n'
-                                'É um momento único, de amor e afeto, aproveita e '
-                                'converse com ${ep.controllerNameChild.text} e demonstre todo o seu carinho. Se a '
-                                'família puder paticipar durante esse momento, conte com o apoio '
-                                'e carinho deles também. Você vai sentir mais forte e confiante;\n\n'
-                                'Tenha confiança! Evite o estresse, ansiedade e sentimentos '
-                                'negativos, pois isso pode interferir na saída do leite;\n\n'
-                                'Caso tenha dificuldade em amamentar ${ep.controllerNameChild.text}, mesmo após o'
-                                ' uso do aplicativo Universo Prematuro, procure ajuda! Você não '
-                                'está sozinha. Procure a Unidade Básica de Saúde mais próxima de '
-                                'sua casa, você vai encontrar profissionais capacitados para lhe '
-                                'orientar, para que você consiga continuar amamentando.',
+                      child: const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                            '' 'Mamãe! \n'
+                                'O crescimento saudável é alcançado com uma alimentação adequada  '
+                                'principalmente nos dois primeiros anos de vida. O aleitamento '
+                                'materno surge como uma estratégia eficiente de nutrição, proteção,'
+                                ' vínculo e afeto. O leite materno contém todos os nutrientes '
+                                'essenciais para o crescimento e o desenvolvimento da criança. '
+                                'Mesmo quando a amamentação não é possível, algumas estratégias '
+                                'podem servir de aliadas neste processo de transição para a fórmula'
+                                ' infantil.''O crescimento saudável é alcançado com uma alimentação adequada  '
+                                'principalmente nos dois primeiros anos de vida. Preparamos um material para auxiliá-la nesse processo.',
+                                textAlign: TextAlign.justify,
                                 style: const TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w400
+                                  fontWeight: FontWeight.w500,
+                                  color: Color.fromARGB(255, 35, 85, 24)
                               ),
-                            );
-                          }
-                        ),
+                            )
+                          ),
                       )
                     )
-                  )
-                ),
-               
-                SingleChildScrollView(
-                      padding: const EdgeInsets.all(70),
-                      scrollDirection: Axis.horizontal,
-                      child: Row(children: [
-                        SizedBox(
-                          width: 150,
-                          height: 150,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                            elevation: 20,
-                            color: Colors.white,
-                            child: Column(children: [
-                              Image.asset('images/buttons/BotaoUP.png',width: 100, height: 92,),
-                              TextButton(
-                                onPressed: (){},
-                                child: const Text('O Projeto', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),
-                              ) 
-                            ]),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 150,
-                          height: 150,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                            elevation: 50,
-                            color: Colors.white,
-                            child: Column(children: [
-                              Image.asset('images/buttons/BotaoUP.png',width: 100, height: 92,),
-                              TextButton(
-                                onPressed: (){},
-                                child: const Text('O Projeto', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),
-                              ) 
-                            ]),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 150,
-                          height: 150,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                            elevation: 20,
-                            color: Colors.white,
-                            child: Column(children: [
-                              Image.asset('images/buttons/BotaoUP.png',width: 100, height: 92,),
-                              TextButton(
-                                onPressed: (){},
-                                child: const Text('O Projeto', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),
-                              ) 
-                            ]),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 150,
-                          height: 150,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                            elevation: 20,
-                            color: Colors.white,
-                            child: Column(children: [
-                              Image.asset('images/buttons/BotaoUP.png',width: 100, height: 92,),
-                              TextButton(
-                                onPressed: (){},
-                                child: const Text('O Projeto', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),),
-                              ) 
-                            ]),
-                          ),
-                        ),
-                      ],
-                    )
                   ),
+                
+
+                const Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(25.0),
+                    child: Text(
+                      "Preparamos um material de fácil entendimento para que "
+                      "você possa sanar suas dúvidas a respeito de amamentação e/ou "
+                      "oferecimento da fórmula!",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600
+                      ),
+                      ),
+                  ),
+                ),
+
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.white),
+                    fixedSize: MaterialStateProperty.all(Size.fromWidth(320)),
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25))),
+                    
+                  ),
+                  onPressed: (){
+                    Navigator.pushReplacementNamed(context, '/crescimento/tip');
+                  }, 
+                  child: const Text(
+                    "Navegar até o material!",
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontWeight: FontWeight.w600
+                    ),
+                    
+                    )),
+               
+                SizedBox(height: 100)
   
               ]
             ),

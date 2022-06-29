@@ -13,7 +13,10 @@ class AppWidget extends StatelessWidget {
         primary:const Color.fromARGB(255, 101, 187, 88) ,
         secondary: const Color.fromARGB(255, 255, 193, 143)),
         elevatedButtonTheme: ElevatedButtonThemeData(style: TextButton.styleFrom(
-          elevation: 20,
+          elevation: 10,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20)
+          ),
           shadowColor: Colors.black,
         ))
         ), 

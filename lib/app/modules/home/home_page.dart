@@ -208,17 +208,17 @@ class _HomePageState extends State<HomePage>{
                       ],
                     )
                     ),
-                    Center(
-                      child: SizedBox(
-                        width: 350,
-                        height: 420,
-                        child: Card(
-                          shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                          elevation: 20,
-                          color: Colors.white,
-                          child: const Padding(
-                            padding: EdgeInsets.all(15.0),
+                      Center(
+                        child: SizedBox(
+                          width: 350,
+                          height: 420,
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
+                            elevation: 20,
+                            color: Colors.white,
+                            child: const Padding(
+                              padding: EdgeInsets.all(15.0),
                             child: Text('O projeto “Universo Prematuro” envolve uma ferramenta '
                                         'digital para oferecer o melhor cuidado longitudinal de '
                                         'crianças nascidas prematuras (idade gestacional menor que'

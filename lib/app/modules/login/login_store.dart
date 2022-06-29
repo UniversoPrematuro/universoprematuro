@@ -12,6 +12,8 @@ part 'login_store.g.dart';
 class LoginStore = _LoginStoreBase with _$LoginStore;
 abstract class _LoginStoreBase with Store {
 
+  RegisterStore reg = Modular.get();
+
   
 
 
@@ -21,6 +23,11 @@ abstract class _LoginStoreBase with Store {
   @observable
   TextEditingController controllerPass = TextEditingController();
 
+  @observable
+  bool loading = false;
+
+  @observable
+  String error = '';
 
   @action
   changeEmail(String value) => controllerEmail.text = value;
@@ -49,19 +56,71 @@ abstract class _LoginStoreBase with Store {
     }
   }
 
-
-  Future login(UserModel user) async {
+  @action
+  Future signInWithEmailAndPassword(UserModel user) async {
+    loading = true;
     FirebaseAuth auth = FirebaseAuth.instance;
+    User usuarioLogado = await auth.currentUser!;
     user.email = controllerEmail.text;
     user.pass = controllerPass.text;
-    await auth.signInWithEmailAndPassword(email: user.email!, password: user.pass!)
-    .then((firebaseUser) { 
-      Modular.to.pushNamed('/home/nav');
-    }).catchError((error){
-      error = 'Erro ao autenticar o usuario, verifique email e senha';
-      return error;
+    Future.delayed(const Duration(seconds: 3)).whenComplete(() async {
+      try {
+        await auth.signInWithEmailAndPassword(email: user.email!, password: user.pass!).then((firebaseUser) async {
+          if(usuarioLogado != null) loading = false;
+          Modular.to.pushNamed('/home/nav');
+        });
+      } on FirebaseAuthException catch (e) {
+        loading = false;
+        switch (e.code) {
+          case "invalid-email":
+            error = "E-mail inválido, por favor verifique.";
+            break;
+          case "wrong-password":
+            error = "Senha incorreta.";
+            break;
+          case "user-not-found":
+            error = "E-mail não cadastrado";
+            break;
+          case "user-disabled":
+            error = "User with this email has been disabled.";
+            break;
+          case "too-many-requests":
+            error = "Too many requests. Try again later.";
+            break;
+          case "operation-not-allowed":
+            error = "Signing in with Email and Password is not enabled.";
+            break;
+          default:
+            error = "An undefined Error happened.";
+        }
+        print(error);
+      }
     });
   }
+
+  
+  Future _verificaLogado() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+
+
+    User usuarioLogado = await auth.currentUser!;
+    if(usuarioLogado != null ){
+      Modular.to.pushNamed('/perfil');
+    }
+
+  }
+
+
+  // Future login(UserModel user) async {
+  //   FirebaseAuth auth = FirebaseAuth.instance;
+  //   String? error;
+  //   user.email = controllerEmail.text;
+  //   user.pass = controllerPass.text;
+  //   await auth.signInWithEmailAndPassword(email: user.email!, password: user.pass!)
+  //   .then((firebaseUser) { 
+  //     Modular.to.pushNamed('/home/nav');
+  //   }).onFir;
+  // }
   
 
   

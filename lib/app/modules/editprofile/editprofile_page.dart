@@ -291,7 +291,7 @@ class EditprofilePageState extends State<EditprofilePage> {
                 onPressed: (){
                   
                   store.saveData();
-                  Modular.to.pushNamed('/home/nav');
+                  Modular.to.pushNamed('/nav/perfil');
                 }, 
                 child: const Text("Salvar dados", style: TextStyle(
                   color: Colors.green,

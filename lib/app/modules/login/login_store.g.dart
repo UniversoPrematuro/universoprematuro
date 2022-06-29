@@ -41,6 +41,48 @@ mixin _$LoginStore on _LoginStoreBase, Store {
     });
   }
 
+  late final _$loadingAtom =
+      Atom(name: '_LoginStoreBase.loading', context: context);
+
+  @override
+  bool get loading {
+    _$loadingAtom.reportRead();
+    return super.loading;
+  }
+
+  @override
+  set loading(bool value) {
+    _$loadingAtom.reportWrite(value, super.loading, () {
+      super.loading = value;
+    });
+  }
+
+  late final _$errorAtom =
+      Atom(name: '_LoginStoreBase.error', context: context);
+
+  @override
+  String get error {
+    _$errorAtom.reportRead();
+    return super.error;
+  }
+
+  @override
+  set error(String value) {
+    _$errorAtom.reportWrite(value, super.error, () {
+      super.error = value;
+    });
+  }
+
+  late final _$signInWithEmailAndPasswordAsyncAction = AsyncAction(
+      '_LoginStoreBase.signInWithEmailAndPassword',
+      context: context);
+
+  @override
+  Future<dynamic> signInWithEmailAndPassword(UserModel user) {
+    return _$signInWithEmailAndPasswordAsyncAction
+        .run(() => super.signInWithEmailAndPassword(user));
+  }
+
   late final _$_LoginStoreBaseActionController =
       ActionController(name: '_LoginStoreBase', context: context);
 
@@ -70,7 +112,9 @@ mixin _$LoginStore on _LoginStoreBase, Store {
   String toString() {
     return '''
 controllerEmail: ${controllerEmail},
-controllerPass: ${controllerPass}
+controllerPass: ${controllerPass},
+loading: ${loading},
+error: ${error}
     ''';
   }
 }

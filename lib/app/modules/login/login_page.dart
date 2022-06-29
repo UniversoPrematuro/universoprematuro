@@ -15,6 +15,7 @@ class LoginPage extends StatefulWidget {
 class LoginPageState extends State<LoginPage> {
   final LoginStore store = Modular.get();
   final RegisterStore reg = Modular.get();
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +64,9 @@ class LoginPageState extends State<LoginPage> {
                           builder: (_) {
                            return TextField(
                             controller: store.controllerEmail,
-                            onChanged:(value) =>  reg.changeEmail,
+                            onChanged:(value) =>  store.changeEmail,
                                decoration: InputDecoration(
-                                errorText: reg.validateEmail(),
+                                errorText: store.validateEmail(),
                                    labelText: "Email",
                                    border: OutlineInputBorder(
                                      borderRadius: BorderRadius.circular(8),
@@ -76,19 +77,37 @@ class LoginPageState extends State<LoginPage> {
                           builder: (_) {
                            return TextField(
                             controller: store.controllerPass,
-                            onChanged:(value) => reg.changePass,
+                            onChanged:(value) => store.changePass,
                                decoration: InputDecoration(
                                    labelText: "Senha",
-                                   errorText: reg.validatePass(),
+                                   errorText: store.validatePass(),
                                    border: OutlineInputBorder(
                                      borderRadius: BorderRadius.circular(8),
                                    )));
                       }),
-                          ElevatedButton(
-                              onPressed: () {
-                                store.login(UserModel());
-                              },
-                              child: const Text("Entre agora!"))
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  store.signInWithEmailAndPassword(UserModel());
+                                },
+                                child: const Text("Entre agora!")),
+                          ),
+
+                          Observer(
+                            builder: (_) {
+                            return Container(
+                              margin: const EdgeInsets.all(10),
+                              child: Text(
+                                store.error,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.red[900],
+                                  fontWeight: FontWeight.w500
+                                ),
+                                )
+                              );
+                            })
                         ],
                       ),
                     ),

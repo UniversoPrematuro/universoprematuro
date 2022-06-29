@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/configuracoes/configuracoes_module.dart';
 import 'package:universoprematuro/app/modules/configuracoes/configuracoes_store.dart';
+import 'package:universoprematuro/app/modules/crescimento/tips/tips_module.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_module.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:universoprematuro/app/modules/home/home_store.dart';
@@ -46,6 +47,7 @@ class AppModule extends Module {
     ModuleRoute('/configuracoes', module: ConfiguracoesModule()),
     ModuleRoute('/desenvolvimento', module: DesenvolvimentoModule()),
     ModuleRoute('/crescimento', module: CrescimentoModule()),
+    ModuleRoute('/tip', module: TipsModule()),
     ModuleRoute('/nav', module: NavModule()),
   ];
   
