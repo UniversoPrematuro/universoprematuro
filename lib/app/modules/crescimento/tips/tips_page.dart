@@ -13,18 +13,18 @@ class TipsPageState extends State<TipsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 254, 187, 132),
-        elevation: 0,
-        centerTitle: true,
-        title: const Text("Crescimento"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new),
-          onPressed: (){
-            Modular.to.pushReplacementNamed('/home/nav/crescimento');
-          }
-        ),
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: const Color.fromARGB(255, 254, 187, 132),
+      //   elevation: 0,
+      //   centerTitle: true,
+      //   title: const Text("Crescimento"),
+      //   leading: IconButton(
+      //     icon: const Icon(Icons.arrow_back_ios_new),
+      //     onPressed: (){
+      //       Modular.to.pushReplacementNamed('/home/nav/crescimento');
+      //     }
+      //   ),
+      // ),
             
       // LinearGradient(
       //       begin: Alignment.topCenter,
@@ -48,98 +48,7 @@ class TipsPageState extends State<TipsPage> {
               crossAxisSpacing: 30,
               children: [
                 ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Aleitamento materno em livre demanda",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Final da mamada",
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Técnicas que auxiliam a amamentação",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Principais problemas relacionados a mama",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Verdades e mitos sobre a amamentação",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Retorno ao trabalho",
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Perguntas sobre a amamentação e o uso do app",
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Amamentação/fórmula e a introdução a alimentos",
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
-                  child: const Text(
-                    "Amamentação/fórmula e a introdução a alimentos",
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600
-                    ),
-                    )),
-                ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: (){Modular.to.pushNamed('/tip/tip1');}, 
                   child: const Text(
                     "Dicas iniciais para as mamães",
                     textAlign: TextAlign.center,
@@ -148,26 +57,29 @@ class TipsPageState extends State<TipsPage> {
                       fontWeight: FontWeight.w600
                     ),
                     )),
+
                 ElevatedButton(
-                  onPressed: (){}, 
+                  onPressed: (){Modular.to.pushNamed('/tip/tip2');}, 
                   child: const Text(
                     "Importância do aleitamento materno",
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600
                     ),
                     )),
+
                 ElevatedButton(
                   onPressed: (){}, 
                   child: const Text(
                     "Cuidados com a mama",
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600
                     ),
                     )),
+
                 ElevatedButton(
                   onPressed: (){}, 
                   child: const Text(
@@ -178,6 +90,7 @@ class TipsPageState extends State<TipsPage> {
                       fontWeight: FontWeight.w600
                     ),
                     )),
+                    
                 ElevatedButton(
                   onPressed: (){}, 
                   child: const Text(
@@ -218,9 +131,119 @@ class TipsPageState extends State<TipsPage> {
                       fontWeight: FontWeight.w600
                     ),
                     )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Aleitamento materno em livre demanda",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    
+                    )),
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Técnicas que auxiliam a amamentação",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Principais problemas relacionados a mama",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Final da mamada",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Verdades e mitos sobre a amamentação",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Retorno ao trabalho",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Perguntas sobre a amamentação e o uso do app",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Amamentação/fórmula e a introdução a alimentos",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+
+                ElevatedButton(
+                  onPressed: (){}, 
+                  child: const Text(
+                    "Amamentação/fórmula e a introdução a alimentos",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600
+                    ),
+                    )),
+                
+                
+                
+                
+                
+
+
+
+
                     SizedBox(
-                  height: 100, 
-                  child: ElevatedButton(onPressed: (){
+                  height: 50, 
+                  child: OutlinedButton(
+                    onPressed: (){
                     Modular.to.pushNamed("/home/nav");
                   },
                   child: Text("Home")

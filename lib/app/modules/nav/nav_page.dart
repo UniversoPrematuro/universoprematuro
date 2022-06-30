@@ -17,7 +17,7 @@ class NavPage extends StatefulWidget {
 class NavPageState extends State<NavPage> {
   final NavStore store = Modular.get();
   final RegisterStore reg = Modular.get();
-  final HomePage home = HomePage();
+
 
   @override
   Widget build(BuildContext context) {

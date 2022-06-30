@@ -7,7 +7,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Slidy',
+      title: 'Universo Prematuro',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
         primary:const Color.fromARGB(255, 101, 187, 88) ,

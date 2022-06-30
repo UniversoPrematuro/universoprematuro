@@ -76,11 +76,21 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-
-  - images/
-  - images/rest/Personagemai.png
-  - images/logo/LogoMov.gif
-  - images/buttons/BotaoUP.png
+    - images/
+    - images/logo/
+    - images/crescimento/1-4/
+    - images/buttons/
+    - images/rest/
+  # - images/rest/Personagemai.png
+  # - images/logo/LogoMov.gif
+  # - images/buttons/BotaoUP.png
+  # - images/crescimento/initial.png
+  # - images/crescimento/initial1.gif
+  # - images/crescimento/initial2.jpg
+  # - images/crescimento/initial3.jpg
+  # - images/crescimento/initial4.png
+  # - images/crescimento/initial5.jpg
+  # - images/crescimento/initial6.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

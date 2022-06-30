@@ -14,6 +14,7 @@ import 'package:universoprematuro/app/modules/register/register_module.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 import 'modules/crescimento/crescimento_module.dart';
 import 'modules/crescimento/crescimento_store.dart';
+import 'modules/crescimento/tips/tip/tip_store.dart';
 import 'modules/desenvolvimento/desenvolvimento_module.dart';
 import 'modules/desenvolvimento/desenvolvimento_store.dart';
 import 'modules/home/home_module.dart';
@@ -33,6 +34,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => DesenvolvimentoStore()),
     Bind.lazySingleton((i) => CrescimentoStore()),
     Bind.lazySingleton((i) => NavStore()),
+    Bind.lazySingleton((i) => TipStore()),
 
   ];
 
