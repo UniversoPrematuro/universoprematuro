@@ -5,7 +5,7 @@ class imageContent extends StatelessWidget {
   String figure;
   Widget descript;
 
-  imageContent(this.figure,this.descript);
+  imageContent(this.figure,this.descript, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,4 +57,3 @@ class textContent extends StatelessWidget {
     );
   }
 }
-

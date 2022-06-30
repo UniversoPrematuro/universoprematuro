@@ -1,25 +1,29 @@
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:universoprematuro/app/modules/crescimento/tips/tip/tip_store.dart';
 import 'package:flutter/material.dart';
-import 'package:universoprematuro/app/modules/crescimento/tips/tip/widgets/image_content.dart';
+import 'package:universoprematuro/app/modules/crescimento/material/tip/pages/widgets/image_content.dart';
 
-class TipPage extends StatefulWidget {
+class Tip1Page extends StatefulWidget {
   final String title;
-  const TipPage({Key? key, this.title = 'TipPage'}) : super(key: key);
+  const Tip1Page({Key? key, this.title = 'Tip1Page'}) : super(key: key);
   @override
-  TipPageState createState() => TipPageState();
+  Tip1PageState createState() => Tip1PageState();
 }
-class TipPageState extends State<TipPage> {
-  final TipStore store = Modular.get();
-
+class Tip1PageState extends State<Tip1Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text("Dicas Iniciais"), 
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 255, 193, 143),
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: (){
+             Navigator.pushReplacementNamed(context, '/crescimento/tip');
+          },
+        ),
       ),
-      body: 
-          ListView(
+      body: ListView(
         padding: EdgeInsets.all(20.0),
         children: <Widget>[
           const SizedBox(height: 30.0,),
@@ -33,8 +37,7 @@ class TipPageState extends State<TipPage> {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30.0,),
-          imageContent('images/crescimento/1-4/initial.png',
-          textContent('', '\u27A2Mamãe! '
+          imageContent('images/crescimento/1-4/initial.png',textContent('', '\u27A2Mamãe! '
               'Escolha um ambiente agradável, tranquilo e calmo. Um ambiente '
               'que você se sinta confortável;\n\n'
               '\u27A2Se você  gostar de música, coloque uma música relaxante, '
@@ -56,7 +59,6 @@ class TipPageState extends State<TipPage> {
           SizedBox(height: 30.0,),
         ],
       ),
-    
     );
   }
 }

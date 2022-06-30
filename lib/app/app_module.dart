@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universoprematuro/app/modules/configuracoes/configuracoes_module.dart';
 import 'package:universoprematuro/app/modules/configuracoes/configuracoes_store.dart';
-import 'package:universoprematuro/app/modules/crescimento/tips/tips_module.dart';
+import 'package:universoprematuro/app/modules/crescimento/material/tip/tip_store.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_module.dart';
 import 'package:universoprematuro/app/modules/editprofile/editprofile_store.dart';
 import 'package:universoprematuro/app/modules/home/home_store.dart';
@@ -14,7 +14,7 @@ import 'package:universoprematuro/app/modules/register/register_module.dart';
 import 'package:universoprematuro/app/modules/register/register_store.dart';
 import 'modules/crescimento/crescimento_module.dart';
 import 'modules/crescimento/crescimento_store.dart';
-import 'modules/crescimento/tips/tip/tip_store.dart';
+import 'modules/crescimento/material/tip/tip_module.dart';
 import 'modules/desenvolvimento/desenvolvimento_module.dart';
 import 'modules/desenvolvimento/desenvolvimento_store.dart';
 import 'modules/home/home_module.dart';
@@ -49,8 +49,8 @@ class AppModule extends Module {
     ModuleRoute('/configuracoes', module: ConfiguracoesModule()),
     ModuleRoute('/desenvolvimento', module: DesenvolvimentoModule()),
     ModuleRoute('/crescimento', module: CrescimentoModule()),
-    ModuleRoute('/tip', module: TipsModule()),
     ModuleRoute('/nav', module: NavModule()),
+    ModuleRoute('/tip', module: TipModule()),
   ];
   
 

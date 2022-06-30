@@ -102,12 +102,15 @@ class PerfilPageState extends State<PerfilPage> {
             
                              Padding(
                                padding: const EdgeInsets.only(/*left: 88, bottom: 200*/),
-                               child: CircleAvatar(
-                               radius: 55,
-                               backgroundColor: Colors.black,
-                               backgroundImage: NetworkImage(ep.urlImagemRec),
-                              //  backgroundImage: NetworkImage(),
-                                 ),
+                               child: Observer(
+                                builder: (_) {
+                                 return CircleAvatar(
+                                 radius: 55,
+                                 backgroundColor: Colors.black,
+                                 backgroundImage: NetworkImage(ep.urlImagemRec),
+                                                             //  backgroundImage: NetworkImage(),
+                                   );
+                                }),
                                 ),
                                 ElevatedButton(onPressed: (){Modular.to.pushReplacementNamed("/home");}, child: const Text("Editar"))
                               ],
